@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -8,14 +7,14 @@ const Hero = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
-      className="flex flex-col items-center text justify-center text-center px-4 py-16 bg-white"
+      className="flex flex-col items-center justify-center text-center px-4 sm:px-6 py-16 sm:py-24 bg-white"
     >
       {/* Heading */}
       <motion.h1
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1, delay: 0.3, type: "spring" }}
-        className="text-3xl md:text-6xl leading-snug text-gray-900 max-w-4xl"
+        className="text-[34px] sm:text-5xl md:text-6xl leading-snug heading sm:leading-tight text-gray-900 max-w-md sm:max-w-4xl"
       >
         Is Your Revenue Stuck <br />
         Between{" "}
@@ -23,7 +22,7 @@ const Hero = () => {
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="font-bold border-red-500 border-b-4"
+          className="font-bold border-b-4 border-red-500"
         >
           ₹5L–₹10L/Month
         </motion.span>{" "}
@@ -32,7 +31,7 @@ const Hero = () => {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className=" "
+          className="block mt-1 sm:mt-2"
         >
           — No Matter What You Try?
         </motion.span>
@@ -43,7 +42,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1 }}
-        className="mt-6 text-lg md:text-xl text-gray-700 max-w-3xl"
+        className="mt-6 sm:mt-8 text-base sm:text-xl text-gray-700 max-w-sm sm:max-w-3xl px-2"
       >
         We help fashion brands cross{" "}
         <motion.span
@@ -58,8 +57,13 @@ const Hero = () => {
         <motion.span
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 0.6, delay: 2, type: "spring", stiffness: 200 }}
-          className="px-3 py-1 bg-green-500 text-white font-semibold rounded"
+          transition={{
+            duration: 0.6,
+            delay: 2,
+            type: "spring",
+            stiffness: 200,
+          }}
+          className="inline-block mt-2 px-3 py-1 bg-green-500 text-white font-semibold rounded"
         >
           profitably
         </motion.span>{" "}

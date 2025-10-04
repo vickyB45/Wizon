@@ -17,21 +17,21 @@ const StuckSales = () => {
   }
 
   return (
-    <div className="py-12 mt-10">
+    <div className="py-12 md:mt-10 px-4 sm:px-0">
       {/* Animated Heading */}
       <motion.h2
-        className="heading text-center mt-6 text-[55px] tracking-wide font-[600]"
+        className="heading text-center mt-6 text-4xl sm:text-[55px] tracking-tight  md:tracking-wide font-semibold"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: "easeOut" }}
       >
         WHY YOU'RE STUCK AT ₹5-10 IN SALES?
       </motion.h2>
 
       {/* Animated Lines */}
       <motion.div
-        className="mt-10 flex flex-col space-y-4 pl-12 text-zinc-800"
+        className="mt-10 flex flex-col heading space-y-4 sm:pl-12 text-zinc-800"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -46,7 +46,7 @@ const StuckSales = () => {
         ].map((line, i) => (
           <motion.p
             key={i}
-            className="text-4xl tracking-tight leading-10"
+            className="text-xl sm:text-4xl tracking-tight leading-8 sm:leading-10"
             variants={itemVariants}
           >
             {line}
