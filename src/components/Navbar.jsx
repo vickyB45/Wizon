@@ -2,9 +2,31 @@ import React, { useState } from "react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+
+const path = [
+  {
+    name: "About",
+    path: "/about"
+  },
+  {
+    name: "Service",
+    path: "/service"
+  },
+  {
+    name:" Contact Us",
+    path: "/contact"
+  },
+  {
+    name: "Portfolio",
+    path: "/portfolio"
+  },
+]
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+
 
   return (
     <nav className="flex items-center justify-between px-6 py-4 bg-white max-w-5xl mx-auto relative">
@@ -21,7 +43,7 @@ const Navbar = () => {
         {/* Center: Logo (absolute for perfect centering) */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <div className="text-4xl logo font-bold tracking-wide select-none">
-            <span className="text-black">wizon</span>
+            <Link to="/" className="text-black cursor-pointer"><span>wizon</span></Link>
           </div>
         </div>
       </div>
@@ -30,18 +52,19 @@ const Navbar = () => {
       <div className="hidden md:flex items-center justify-between w-full">
         {/* Logo Center */}
         <div className="text-5xl logo font-bold tracking-wide">
-          <span className="text-black">wizon</span>
+            <Link to="/" className="select-none text-black cursor-pointer"><span>wizon</span></Link>
         </div>
 
         {/* Menu Items */}
         <ul className="flex space-x-10 text-[17px] text-gray-800 select-none">
-          {["About Us", "Portfolio", "Contact", "Services"].map((item, i) => (
-            <li
+          {path.map((item, i) => (
+            <Link
+            to={item.path}
               key={i}
               className="cursor-pointer transition-all duration-200 active:scale-[.94]"
             >
-              {item}
-            </li>
+              {item.name}
+            </Link>
           ))}
         </ul>
       </div>
@@ -56,16 +79,20 @@ const Navbar = () => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="fixed top-0 left-0 w-3/4 h-full bg-white pt-10 shadow-xl z-40 flex flex-col items-start p-6 space-y-6 text-lg font-medium text-gray-800"
           > 
-            {["About Us", "Portfolio", "Contact", "Services"].map((item, i) => (
-              <motion.div
+            {path.map((item, i) => (
+              <Link
+              to={item.path}
               key={i}
+              >
+              <motion.div
               initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
                 className="cursor-pointer text  active:scale-[.96] transition-transform"
                 >
-                {item}
+                {item.name}
               </motion.div>
+              </Link>
             ))}
 
             {/* Close Button */}

@@ -33,7 +33,7 @@ const TrustedBrands = () => {
       </motion.h2>
 
       <motion.div
-        className="grid-cols-1 grid px-4 md:grid-cols-3 gap-8 max-w-5xl py-6 mx-auto"
+        className="grid-cols-1 grid px-4 sm:grid-cols-3 gap-8 max-w-5xl py-6 mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
