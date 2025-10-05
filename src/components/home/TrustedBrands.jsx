@@ -21,9 +21,9 @@ const TrustedBrands = () => {
   };
 
   return (
-    <div className="py-12">
+    <div className="pb-12">
       <motion.h2
-        className="text-6xl heading text-center font-[600] py-4"
+        className=" text-5xl md:text-6xl heading text-center font-[600] py-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
@@ -33,7 +33,7 @@ const TrustedBrands = () => {
       </motion.h2>
 
       <motion.div
-        className="grid-cols-1 grid md:grid-cols-3 gap-8 max-w-5xl py-6 mx-auto"
+        className="grid-cols-1 grid px-4 md:grid-cols-3 gap-8 max-w-5xl py-6 mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -42,7 +42,7 @@ const TrustedBrands = () => {
         {["Peachyboo", "Crook Store", "Liveology"].map((brand, i) => (
           <motion.div
             key={i}
-            className="border-green-500 border-2 p-4 text-4xl min-h-60 text font-[700]"
+            className="border-green-500 border-2 p-4 text-2xl md:text-4xl min-h-50 md:min-h-60 text font-[700]"
             variants={itemVariants}
           >
             {brand}

@@ -63,7 +63,7 @@ const Home = () => {
       variants={cardVariants}
       className="flex justify-center sm:justify-start"
     >
-      <CardLanding heading={item.heading} text={item.text} />
+      <CardLanding  heading={item.heading} text={item.text} />
     </motion.div>
   ))}
 </motion.div>

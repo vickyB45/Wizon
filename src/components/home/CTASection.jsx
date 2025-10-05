@@ -31,7 +31,7 @@ const CTASection = () => {
 
         {/* Sub Text */}
         <motion.p
-          className="mt-4 text-lg text-gray-200 text tracking-wide"
+          className="mt-4 md:text-lg text-gray-200 text tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
@@ -52,14 +52,14 @@ const CTASection = () => {
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="px-8 py-4 rounded-full cursor-pointer bg-black border-2 border-red-600 text-white font-bold text-sm tracking-wide  hover:text-white transition"
+            className="px-2 md:px-8 py-4 rounded-full cursor-pointer bg-black border-2 border-red-600 text-white font-bold text-xs  tracking-wide  hover:text-white transition"
           >
             BOOK YOUR FREE STRATEGY CALL
           </motion.button>
         </motion.div>
       </motion.div>
     </section>
-      <h2 className="text-center text-2xl text font-[700] mt-5">WE'LL ADULT YOUR CURRENT SETUP AND SHOW YOU EXACTALY HOW WE'D SCALE YOUR BRAND. NO HARD SELL.</h2>
+      <h2 className="text-center text-xs md:text-2xl heading font-[700] mt-5">WE'LL ADULT YOUR CURRENT SETUP AND SHOW YOU EXACTALY HOW WE'D SCALE YOUR BRAND. NO HARD SELL.</h2>
       </div>
   );
 };

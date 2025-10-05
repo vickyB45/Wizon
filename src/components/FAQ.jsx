@@ -51,7 +51,7 @@ export default function FAQ() {
 
   return (
     <div className="max-w-6xl mx-auto py-12 px-4">
-      <h2 className="text-5xl font-bold heading text-center mb-8 uppercase tracking-wide">
+      <h2 className="text-3xl md:text-5xl font-bold heading text-center mb-8 uppercase tracking-wide">
         Questions In Your Mind
       </h2>
 
@@ -70,7 +70,7 @@ export default function FAQ() {
               ) : (
                 <Plus className="w-8 h-8 text-blue-500" />
               )}
-              <h3 className="text-xl heading font-semibold">{faq.question}</h3>
+              <h3 className="text-lg md:text-xl heading font-semibold">{faq.question}</h3>
             </div>
 
             <AnimatePresence>
@@ -82,7 +82,7 @@ export default function FAQ() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="mt-2 text-[20px] text text-gray-600 ml-12">{faq.answer}</p>
+                  <p className="mt-2 md:text-[20px] text text-gray-600 ml-12">{faq.answer}</p>
                 </motion.div>
               )}
             </AnimatePresence>

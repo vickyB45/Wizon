@@ -1,36 +1,64 @@
-import React from 'react'
+import React from "react";
 import { FaInstagram } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 
-
 const Footer = () => {
   return (
-    <div className='max-w-5xl mt-10 py-10 mx-auto flex flex-col md:flex-row gap-6 w-full items-start'>
-        <div className="text-8xl logo font-bold tracking-wide w-[35%]">
+    <>
+        <div className="max-w-5xl mt-10  mx-auto flex flex-col md:flex-row gap-8 md:gap-6 w-full items-start px-4 sm:px-6">
+      {/* Logo */}
+      <div className="text-6xl sm:text-7xl md:text-8xl logo font-bold tracking-wide md:w-[35%] w-full text-center md:text-left">
         <span className="text-black">wizon</span>
       </div>
-      <div className='w-[22%]'>
-        <p className='heading leading-5'><span className='font-bold'>BOOK A STRATEGY CALL</span> <br />Stuck at <span className='font-bold'>₹5-10/month?</span> <br />Let us audio your ads and fix your scale plan.</p>
-        <p className='mt-4 px-2 py-1 border-2 inline-block border-green-500 font-bold'>Book Your Free Call</p>
+
+      {/* Strategy Call */}
+      <div className="md:w-[22%] w-full text-center md:text-left">
+        <p className="heading text-base sm:text-lg leading-6">
+          <span className="font-bold">BOOK A STRATEGY CALL</span> <br />
+          Stuck at <span className="font-bold">₹5-10/month?</span> <br />
+          Let us audit your ads and fix your scale plan.
+        </p>
+        <p className="mt-4 px-3 py-2 border-2 inline-block border-green-500 font-bold text-sm sm:text-base hover:bg-green-50 cursor-pointer transition-all">
+          Book Your Free Call
+        </p>
       </div>
-      <div className='text w-[22%]'>
-        <h2 className='heading font-bold mb-2'>QUICK LINKS</h2>
-        <ul>
-        <li><a href="#">Service</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Contact Us</a></li>
+
+      {/* Quick Links */}
+      <div className="text md:w-[22%] w-full text-center md:text-left">
+        <h2 className="heading font-bold mb-2 text-lg sm:text-xl">QUICK LINKS</h2>
+        <ul className="space-y-1 text-base sm:text-lg">
+          <li>
+            <a href="#" className="hover:underline">Service</a>
+          </li>
+          <li>
+            <a href="#" className="hover:underline">About</a>
+          </li>
+          <li>
+            <a href="#" className="hover:underline">Portfolio</a>
+          </li>
+          <li>
+            <a href="#" className="hover:underline">Contact Us</a>
+          </li>
         </ul>
       </div>
-      <div className='heading w-[22%]'>
-        <h2 className='font-bold'>Fashion-Focused. <br /> Performance-Obsessed</h2>
-        <div className='flex gap-3 mt-4'>
-            <FaInstagram className='cursor-pointer' size={25} />
-            <FaLinkedin className='cursor-pointer' size={25}/>
+
+      {/* Social Section */}
+      <div className="heading md:w-[22%] w-full text-center md:text-left">
+        <h2 className="font-bold text-lg sm:text-xl leading-6">
+          Fashion-Focused. <br /> Performance-Obsessed.
+        </h2>
+        <div className="flex justify-center md:justify-start gap-4 mt-4">
+          <FaInstagram className="cursor-pointer hover:scale-110 transition-transform" size={25} />
+          <FaLinkedin className="cursor-pointer hover:scale-110 transition-transform" size={25} />
         </div>
       </div>
+     
     </div>
-  )
-}
+     <p className="text-center text-sm w-full text-zinc-500 mt-6">
+  © {new Date().getFullYear()} Wizon. All rights reserved.
+</p>
+</>
+  );
+};
 
-export default Footer
+export default Footer;

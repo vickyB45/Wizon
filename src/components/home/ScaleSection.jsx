@@ -31,7 +31,7 @@ const ScaleSection = () => {
       {/* Header */}
       <motion.h2
         style={{ boxShadow: "7px 7px 0 #fff207" }}
-        className="text-xl md:text-4xl font-[500] hover:[box-shadow:7px 7px 0 facc15] heading inline-block bg-black text-white px-4 py-2 relative"
+        className="text-[28px] md:text-4xl font-[500] hover:[box-shadow:7px 7px 0 #facc15] heading inline-block bg-black text-white px-4 py-2 relative"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
@@ -51,7 +51,7 @@ const ScaleSection = () => {
         {/* Left Number Column */}
         <motion.div
           style={{ boxShadow: "-2px 2px 0 #fff207" }}
-          className="flex flex-row sm:flex-col gap-2 bg-black text-white py-3 px-5 heading text-[20px] sm:text-[23px] justify-center rounded-2xl"
+          className=" hidden md:flex flex-row sm:flex-col gap-2 bg-black text-white py-3 px-5 heading text-[20px] sm:text-[23px] justify-center rounded-2xl"
           variants={item}
         >
           {[1, 2, 3, 4, 5, 6, 7].map((num) => (
@@ -63,7 +63,7 @@ const ScaleSection = () => {
         <motion.ul className="space-y-3 sm:space-y-2" variants={container}>
           {points.map((point, index) => (
             <motion.li key={index} className="flex items-start" variants={item}>
-              <p className="text-base sm:text-xl md:text-3xl text-start tracking-tight">
+              <p className="text-lg leading-6 heading sm:text-xl md:text-3xl text-start tracking-tight">
                 {point}
               </p>
             </motion.li>
