@@ -33,7 +33,7 @@ export default function TrustBadges() {
 
   return (
     <motion.div
-      className="flex flex-wrap md:justify-evenly items-center gap-3 md:gap-8 py-6"
+      className="flex py-10 flex-wrap md:justify-evenly items-center gap-3 md:gap-8 md:py-6"
       variants={containerVariants}
       initial="hidden"
       whileInView="show" // animate when visible in viewport

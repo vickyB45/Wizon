@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="max-w-6xl mt-10  mx-auto flex flex-col md:flex-row gap-8 md:gap-6 w-full items-start px-4 sm:px-6">
       {/* Logo */}
       <div className="text-6xl flex justify-center items-center sm:text-7xl md:text-8xl logo font-bold tracking-wide md:w-[35%] w-full text-center md:text-left">
-        <img className="w-58" src="/logo.jpg" alt="logo" />
+        <img className="w-58" src="/logo.png" alt="logo" />
       </div>
 
       {/* Strategy Call */}

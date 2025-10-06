@@ -16,7 +16,7 @@ const CTASection = () => {
       >
         {/* Yellow border shadow effect */}
         <div className="absolute -bottom-2 -right-2 w-full h-full rounded-2xl border-2 border-black -z-10 "></div>
-        <div className="absolute left-0 top-0 w-full h-full rounded-2xl bg-black/70"></div>
+        <div className="absolute left-0 top-0 w-full h-full rounded-2xl bg-black/60"></div>
 
         {/* Heading */}
        <div className="z-20 relative">
@@ -54,7 +54,7 @@ const CTASection = () => {
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="px-2 md:px-8 py-4 rounded-full cursor-pointer bg-black border-2 border-red-600 text-white font-bold text-xs  tracking-wide  hover:text-white transition"
+            className="px-2 md:px-8 py-4 rounded-full cursor-pointer bg-black border-2 border-red-600 text-white md:text-[19px] font-[500] whitespace-nowrap tracking-wide  hover:text-white transition"
           >
             BOOK YOUR FREE STRATEGY CALL
           </motion.button>

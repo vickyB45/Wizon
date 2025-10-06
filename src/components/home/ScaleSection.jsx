@@ -63,7 +63,7 @@ const ScaleSection = () => {
         <motion.ul className="space-y-3 sm:space-y-2" variants={container}>
           {points.map((point, index) => (
             <motion.li key={index} className="flex items-start" variants={item}>
-              <p className="text-lg leading-9 text sm:text-xl md:text-3xl text-start tracking-tight">
+              <p className="text-lg md:leading-9 text sm:text-xl md:text-3xl text-start tracking-tight">
                 {point}
               </p>
             </motion.li>

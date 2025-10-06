@@ -37,14 +37,14 @@ const Navbar = () => {
           className="text-3xl text-gray-800 z-50"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? "" : <HiOutlineMenuAlt2 />}
+          {isOpen ? <HiOutlineMenuAlt2 className="opacity-0"/> : <HiOutlineMenuAlt2 />}
         </button>
 
         {/* Center: Logo (absolute for perfect centering) */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <div className=" select-none">
             <Link to="/" className=" cursor-pointer">
-              <img className="w-30 sm:w-44" src="/logo.jpg" alt="logo" />
+              <img className="w-30 sm:w-44" src="/logo.png" alt="logo" />
             </Link>
           </div>
         </div>
@@ -55,7 +55,7 @@ const Navbar = () => {
         {/* Logo Center */}
         <div className="text-5xl logo font-bold tracking-wide">
           <Link to="/" className=" cursor-pointer">
-            <img className="w-44" src="/logo.jpg" alt="logo" />
+            <img className="w-44" src="/logo.png" alt="logo" />
           </Link>        </div>
 
         {/* Menu Items */}

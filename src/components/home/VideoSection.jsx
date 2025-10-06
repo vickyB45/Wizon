@@ -15,7 +15,7 @@ const VideoSection = () => {
 
   return (
     <>
-      <section className="hidden  md:flex justify-center items-center py-6 px-4">
+      <section className="flex justify-center items-center py-6 px-4">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ const VideoSection = () => {
                 className="absolute inset-0 flex justify-center items-center cursor-pointer z-10 bg-black/20 backdrop-blur-sm"
               >
                 <motion.div
-                  className="w-24 h-24 bg-white/40 rounded-full flex justify-center items-center"
+                  className="md:w-24 md:h-24 h-14 w-14 bg-white/40 rounded-full flex justify-center items-center"
                   animate={{
                     scale: [1, 1.1, 1],
                     opacity: [1, 0.8, 1],
@@ -61,7 +61,7 @@ const VideoSection = () => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-10 w-10 text-black/80 ml-2"
+                    className="h-8 w-8 text-black/80 ml-2"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
