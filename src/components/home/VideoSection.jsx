@@ -15,7 +15,7 @@ const VideoSection = () => {
 
   return (
     <>
-      <section className="hidden  md:flex justify-center items-center h-screen px-4">
+      <section className="hidden  md:flex justify-center items-center py-6 px-4">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ const VideoSection = () => {
 
       {/* CTA Button Section */}
       <motion.div
-        className="text-center text-xs md:text[16px] mb-12 mx-3"
+        className="text-center text-xs md:text[16px]  mx-3"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

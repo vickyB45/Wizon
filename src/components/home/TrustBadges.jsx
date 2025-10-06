@@ -46,7 +46,7 @@ export default function TrustBadges() {
           variants={itemVariants}
         >
           <HiMiniCheckBadge className="text-green-600 w-8 h-8" />
-          <span className="font-semibold text-black text-[18px] heading">
+          <span className=" text-black text-[20px] tracking-tight font-[700] text">
             {text}
           </span>
         </motion.div>

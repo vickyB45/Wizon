@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 
 const CTASection = () => {
   return (
-    <div className="py-16  px-4">
+    <div className="py-8  px-4">
     <section className="flex justify-center items-center ">
       <motion.div      
         style={{ boxShadow: "7px 7px 0 #fff207" }}
-        className="bg-[url(/image/1.jpg)] text-white rounded-2xl relative p-10 max-w-5xl w-full text-center shadow-lg border border-gray-800"
+        className="relative bg-[url(/image/1.jpg)] text-white rounded-2xl relative p-10 max-w-5xl w-full text-center shadow-lg border border-gray-800"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -16,10 +16,12 @@ const CTASection = () => {
       >
         {/* Yellow border shadow effect */}
         <div className="absolute -bottom-2 -right-2 w-full h-full rounded-2xl border-2 border-black -z-10 "></div>
+        <div className="absolute left-0 top-0 w-full h-full rounded-2xl bg-black/70"></div>
 
         {/* Heading */}
-        <motion.h2
-          className="text-3xl md:text-5xl text  leading-snug"
+       <div className="z-20 relative">
+         <motion.h2
+          className="text-3xl md:text-5xl text  md:leading-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
@@ -31,7 +33,7 @@ const CTASection = () => {
 
         {/* Sub Text */}
         <motion.p
-          className="mt-4 md:text-lg text-gray-200 text tracking-wide"
+          className="mt-4 md:text-2xl tracking-tight text-gray-200 text "
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
@@ -57,9 +59,10 @@ const CTASection = () => {
             BOOK YOUR FREE STRATEGY CALL
           </motion.button>
         </motion.div>
+       </div>
       </motion.div>
     </section>
-      <h2 className="text-center text-xs md:text-2xl heading font-[700] mt-5">WE'LL ADULT YOUR CURRENT SETUP AND SHOW YOU EXACTALY HOW WE'D SCALE YOUR BRAND. NO HARD SELL.</h2>
+      <h2 className="text-center text-xs md:text-2xl text font-[700] mt-5">WE'LL ADULT YOUR CURRENT SETUP AND SHOW YOU EXACTALY HOW WE'D SCALE YOUR BRAND. NO HARD SELL.</h2>
       </div>
   );
 };

@@ -36,13 +36,13 @@ const Home = () => {
   }
 
   return (
-    <div className='max-w-5xl mx-auto md:px-4'>
+    <div className='max-w-6xl mx-auto md:px-4'>
       <Hero />
       <VideoSection />
       <TrustBadges />
 
-      <div className="flex justify-center items-center my-6 sm:my-10">
-        <hr className="w-40 sm:w-80 border-t-2 border-gray-800" />
+      <div className="flex justify-center items-center sm:mt-10">
+        <hr className="w-40 sm:w-80 border-t-3 border-gray-800" />
       </div>
 
       {/* Stats Section */}
@@ -74,7 +74,7 @@ const Home = () => {
      <div className="py-8 sm:py-12 md:mt-8 sm:mt-16 px-4 sm:px-0">
   {/* Animated Heading */}
   <motion.h2
-    className="text-center text-4xl md:text-[52px] heading font-semibold leading-snug"
+    className="text-center text-4xl md:text-[52px] text tracking-tight leading-snug"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.4 }}
@@ -88,7 +88,7 @@ const Home = () => {
 
   {/* Animated Grid */}
   <motion.div
-    className="grid grid-cols-1 p-2 gap-4 sm:grid-cols-2 sm:gap-8 md:grid-cols-3 mt-6 sm:mt-10"
+    className="grid grid-cols-1 p-2 gap-4 max-w-5xl mx-auto  sm:grid-cols-2 sm:gap-8 md:grid-cols-3 mt-6 sm:mt-10"
     variants={containerVariants}
     initial="hidden"
     whileInView="visible"
@@ -119,7 +119,7 @@ const Home = () => {
       <motion.div
         key={i}
         variants={itemVariants}
-        className="flex justify-center sm:justify-start"
+        className=""
       >
         <CardLanding2 heading={item.heading} text={item.text} />
       </motion.div>

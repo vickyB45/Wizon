@@ -14,7 +14,7 @@ const path = [
     path: "/service"
   },
   {
-    name:" Contact Us",
+    name: " Contact Us",
     path: "/contact"
   },
   {
@@ -29,7 +29,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className="flex items-center justify-between px-6 py-4 bg-white max-w-5xl mx-auto relative">
+    <nav className="flex items-center justify-between px-6 py-4  max-w-5xl mx-auto relative">
       {/* ===== MOBILE VIEW ===== */}
       <div className="flex items-center justify-between w-full md:hidden relative">
         {/* Left: Menu Icon */}
@@ -42,8 +42,10 @@ const Navbar = () => {
 
         {/* Center: Logo (absolute for perfect centering) */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
-          <div className="text-4xl logo font-bold tracking-wide select-none">
-            <Link to="/" className="text-black cursor-pointer"><span>wizon</span></Link>
+          <div className=" select-none">
+            <Link to="/" className=" cursor-pointer">
+              <img className="w-30 sm:w-44" src="/logo.jpg" alt="logo" />
+            </Link>
           </div>
         </div>
       </div>
@@ -52,14 +54,15 @@ const Navbar = () => {
       <div className="hidden md:flex items-center justify-between w-full">
         {/* Logo Center */}
         <div className="text-5xl logo font-bold tracking-wide">
-            <Link to="/" className="select-none text-black cursor-pointer"><span>wizon</span></Link>
-        </div>
+          <Link to="/" className=" cursor-pointer">
+            <img className="w-44" src="/logo.jpg" alt="logo" />
+          </Link>        </div>
 
         {/* Menu Items */}
-        <ul className="flex space-x-10 text-[17px] text-gray-800 select-none">
+        <ul className="flex space-x-10 text-[19px] text-gray-800 select-none">
           {path.map((item, i) => (
             <Link
-            to={item.path}
+              to={item.path}
               key={i}
               className="cursor-pointer transition-all duration-200 active:scale-[.94]"
             >
@@ -78,20 +81,20 @@ const Navbar = () => {
             exit={{ x: "-100%", opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="fixed top-0 left-0 w-3/4 h-full bg-white pt-10 shadow-xl z-40 flex flex-col items-start p-6 space-y-6 text-lg font-medium text-gray-800"
-          > 
+          >
             {path.map((item, i) => (
               <Link
-              to={item.path}
-              key={i}
+                to={item.path}
+                key={i}
               >
-              <motion.div
-              initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="cursor-pointer text  active:scale-[.96] transition-transform"
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="cursor-pointer text  active:scale-[.96] transition-transform"
                 >
-                {item.name}
-              </motion.div>
+                  {item.name}
+                </motion.div>
               </Link>
             ))}
 

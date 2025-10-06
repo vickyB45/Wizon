@@ -1,14 +1,15 @@
 import React from "react";
 import { FaInstagram } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
     <>
-        <div className="max-w-5xl mt-10  mx-auto flex flex-col md:flex-row gap-8 md:gap-6 w-full items-start px-4 sm:px-6">
+        <div className="max-w-6xl mt-10  mx-auto flex flex-col md:flex-row gap-8 md:gap-6 w-full items-start px-4 sm:px-6">
       {/* Logo */}
-      <div className="text-6xl sm:text-7xl md:text-8xl logo font-bold tracking-wide md:w-[35%] w-full text-center md:text-left">
-        <span className="text-black">wizon</span>
+      <div className="text-6xl flex justify-center items-center sm:text-7xl md:text-8xl logo font-bold tracking-wide md:w-[35%] w-full text-center md:text-left">
+        <img className="w-58" src="/logo.jpg" alt="logo" />
       </div>
 
       {/* Strategy Call */}
@@ -26,18 +27,18 @@ const Footer = () => {
       {/* Quick Links */}
       <div className="text md:w-[22%] w-full text-center md:text-left">
         <h2 className="heading font-bold mb-2 text-lg sm:text-xl">QUICK LINKS</h2>
-        <ul className="space-y-1 text-base sm:text-lg">
+        <ul className="text-base sm:text-lg">
           <li>
-            <a href="#" className="hover:underline">Service</a>
+            <Link to="/about" className="hover:underline">About</Link>
           </li>
           <li>
-            <a href="#" className="hover:underline">About</a>
+            <Link to="/" className="hover:underline">Service</Link>
           </li>
           <li>
-            <a href="#" className="hover:underline">Portfolio</a>
+            <Link to="/" className="hover:underline">Portfolio</Link>
           </li>
           <li>
-            <a href="#" className="hover:underline">Contact Us</a>
+            <Link to="/" className="hover:underline">Contact Us</Link>
           </li>
         </ul>
       </div>
@@ -54,8 +55,8 @@ const Footer = () => {
       </div>
      
     </div>
-     <p className="text-center text-sm w-full text-zinc-500 mt-6">
-  © {new Date().getFullYear()} Wizon. All rights reserved.
+     <p className="text-center text-sm w-full text-zinc-500 mt-6  mb-4">
+  © {new Date().getFullYear()} Wizon | Developed by Kaal Coders
 </p>
 </>
   );

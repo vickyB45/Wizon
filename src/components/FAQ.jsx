@@ -50,27 +50,27 @@ export default function FAQ() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto py-12 px-4">
-      <h2 className="text-3xl md:text-5xl font-bold heading text-center mb-8 uppercase tracking-wide">
-        Questions In Your Mind
+    <div className="max-w-[1000px] mx-auto py-12 px-4">
+      <h2 className="text-3xl md:text-5xl font-bold text text-center mb-12 uppercase tracking-wide">
+        <span className="inline-block border-3 border-red-600">Questions</span> In Your Mind
       </h2>
 
       <div className="space-y-4 ">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className=" pb-3 cursor-pointer"
+            className=" pb-3 "
           >
             <div
               className="flex gap-4 items-center"
               onClick={() => toggleFAQ(index)}
             >
                  {openIndex === index ? (
-                <Minus className="w-8 h-8 text-blue-500" />
+                <Minus className="w-8 h-8 text-sky-600" />
               ) : (
-                <Plus className="w-8 h-8 text-blue-500" />
+                <Plus className="w-8 h-8 text-sky-600" />
               )}
-              <h3 className="text-lg md:text-xl heading font-semibold">{faq.question}</h3>
+              <h3 className="text-lg md:text-xl text font-semibold cursor-pointer">{faq.question}</h3>
             </div>
 
             <AnimatePresence>
@@ -86,7 +86,7 @@ export default function FAQ() {
                 </motion.div>
               )}
             </AnimatePresence>
-            <hr className="mt-10 border-b-2 w-36 border-blue-400"/>
+            <hr className="mt-10 border-b-2 w-36 border-sky-600"/>
           </div>
         ))}
       </div>
