@@ -27,7 +27,7 @@ const ScaleSection = () => {
   }
 
   return (
-    <div className="bg-white text-black py-10 max-w-4xl mx-auto mt-12 text-center">
+    <div className=" py-10 max-w-4xl mx-auto mt-12 text-center">
       {/* Header */}
       <motion.h2
         style={{ boxShadow: "7px 7px 0 #fff207" }}

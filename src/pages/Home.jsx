@@ -36,7 +36,7 @@ const Home = () => {
   }
 
   return (
-    <div className='max-w-6xl mx-auto md:px-4'>
+    <div className='max-w-8xl mx-auto '>
       <Hero />
       <VideoSection />
       <TrustBadges />

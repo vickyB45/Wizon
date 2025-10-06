@@ -7,7 +7,7 @@ const Hero = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
-      className="flex flex-col items-center  justify-center text-center px-4 sm:px-6 py-8 sm:py-12 bg-white"
+      className="flex flex-col bg-[url(/image/bg.png)] bg-cover bg-bottom bg-no-repeat items-center justify-center text-center px-4 sm:px-6 py-8 sm:py-12 bg-white"
     >
       {/* text */}
       <motion.h1
