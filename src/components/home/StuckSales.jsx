@@ -17,7 +17,7 @@ const StuckSales = () => {
   }
 
   return (
-    <div className="py-8 relative md:mt-10 px-4 sm:px-0">
+    <div className="py-8 max-w-6xl mx-auto relative md:mt-10 px-4 sm:px-0">
 
         <div className="absolute inset-0 flex justify-center items-center -z-10">
     <div className="w-[500px] h-[500px] bg-red-500/10 blur-[150px] rounded-full"></div>

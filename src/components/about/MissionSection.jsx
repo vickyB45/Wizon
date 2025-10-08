@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 
 export default function MissionSection() {
     return (
-        <section className="w-full py-12 text-center bg-white overflow-hidden">
+        <section className="w-full py-12 text-center  overflow-hidden">
             {/* Mission Header */}
             <div className="relative mb-6">
                 {/* OUR MISSION box */}
                 <div className="w-full flex justify-start items-center ">
-                    <div className="w-[70%] h-1 border-2" />
+                    <div className="w-[70%] border-2" />
                     <div className="w-[30%]">
                         <motion.div
                             initial={{ x: 50, opacity: 0 }}
@@ -28,7 +28,7 @@ export default function MissionSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true, amount: 0.3 }}
-                className="max-w-4xl ml-auto text mb-8 text-end w-full text-gray-800 text-lg md:text-xl leading-7 px-4"
+                className="max-w-4xl ml-auto text mb-8 text-end w-full text-gray-800 text-lg md:text-[22px] leading-7 px-4"
             >
                 To make profitable, consistent growth simple for fashion brands. <br />
                 We’re here to remove the guesswork from scaling — by replacing hacks with
@@ -48,7 +48,7 @@ export default function MissionSection() {
                         MEET THE FOUNDER
                     </motion.div>
                 </div>
-                <div className="w-[60%] h-1 border-2" />
+                <div className="w-[60%] border-2" />
             </div>
         </section>
     );

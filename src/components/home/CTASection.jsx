@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const CTASection = () => {
   return (
-    <div className="py-8  px-4">
+    <div className="py-8 max-w-6xl mx-auto px-4">
     <section className="flex justify-center items-center ">
       <motion.div      
         style={{ boxShadow: "7px 7px 0 #fff207" }}

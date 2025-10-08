@@ -7,7 +7,7 @@ import WizonStorySection from '../components/about/WizonStorySection'
 
 const About = () => {
   return (
-    <div>
+    <div className='max-w-6xl mx-auto'>
       <HeroSection />
       <MissionSection />
       <WizonTeamSection />
@@ -20,7 +20,7 @@ const About = () => {
     whileInView={{ width: "65%", opacity: 1 }}
     transition={{ duration: 0.8, ease: "easeOut" }}
     viewport={{ once: true, amount: 0.3 }}
-    className="w-[65%] md:w-[60%] h-[1px] md:h-1 border border-black md:border-2 mb-2 md:mb-0"
+    className="w-[65%] md:w-[60%] border border-black md:border-2 mb-2 md:mb-0"
   />
 
   {/* Text */}

@@ -63,7 +63,7 @@ const Hero = () => {
             type: "spring",
             stiffness: 200,
           }}
-          className="inline-block text mt-2 px-3 py-1 pb-2 bg-green-500 text-white font-semibold rounded"
+          className="inline-block text-sm text mt-2 px-3 py-1 pb-1 bg-green-500 text-white font-semibold rounded"
         >
           profitably
         </motion.span>{" "}

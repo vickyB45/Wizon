@@ -2,11 +2,11 @@ import { motion } from 'framer-motion'
 
 export default function WizonTeamSection() {
   return (
-    <div className="relative flex flex-col items-center justify-center bg-white text-black px-4 sm:px-6 py-12 overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center px-4 sm:px-6 py-12 overflow-hidden">
       {/* Curved Lines */}
-      <div className="hidden md:flex w-full max-w-3xl mx-auto absolute top-32 h-[350px] overflow-hidden pointer-events-none">
-        <div className="w-1/2 border-r border-t border-black rounded-[140px] min-h-[800px]"></div>
-        <div className="w-1/2 border-l border-t border-black rounded-[140px] min-h-[800px]"></div>
+      <div className="hidden md:flex w-full max-w-3xl mx-auto absolute top-32 h-[450px] overflow-hidden pointer-events-none">
+        <div className="w-1/2 border-r border-t border-black rounded-[140px] min-h-[1000px]"></div>
+        <div className="w-1/2 border-l border-t border-black rounded-[140px] min-h-[1000px]"></div>
       </div>
 
       {/* Team Section */}
@@ -19,7 +19,7 @@ export default function WizonTeamSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="flex flex-col items-center text-center md:w-1/2 w-full"
         >
-          <div className="w-56 h-56 sm:w-64 sm:h-64 select-none p-4 bg-white border border-black rounded-xl flex items-center justify-center text-sm sm:text-xl font-medium heading">
+          <div className="w-56 h-56 sm:w-84 sm:h-84 select-none p-4 bg-white border border-black rounded-xl flex items-center justify-center text-sm sm:text-2xl font-medium heading">
             PHOTO WILL BE IN BLACK AND WHITE
           </div>
           <motion.h2
@@ -59,7 +59,7 @@ export default function WizonTeamSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="flex flex-col items-center text-center md:w-1/2 w-full"
         >
-          <div className="w-56 h-56 sm:w-64 sm:h-64 select-none p-4 bg-white border border-black rounded-xl flex items-center justify-center text-sm sm:text-xl font-medium heading">
+          <div className="w-56 h-56 sm:w-84 sm:h-84 select-none p-4 bg-white border border-black rounded-xl flex items-center justify-center text-sm sm:text-2xl font-medium heading">
             PHOTO WILL BE IN BLACK AND WHITE
           </div>
           <motion.h2
@@ -98,9 +98,9 @@ export default function WizonTeamSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
-        className="border-2 border-green-400 p-3 sm:p-4 rounded-md text-center max-w-3xl mt-16 mx-4"
+        className="border-3 border-green-400 p-3 sm:p-3 rounded-md text-center max-w-3xl mt-16 mx-4"
       >
-        <p className="font-medium text-sm sm:text-xl">
+        <p className="font-bold text-sm sm:text-[24px] text-gray-800 text">
           Together, we run Wizon Media lean and hands-on — working only with clients we believe we can scale.
         </p>
       </motion.div>

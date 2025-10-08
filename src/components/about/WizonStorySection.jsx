@@ -21,7 +21,7 @@ export default function WizonStorySection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
-        className="text-gray-800 max-w-5xl text-xl text space-y-5"
+        className="text-gray-800 max-w-5xl text-[25px] text space-y-5"
       >
         <p className="text-start">
           We started Wizon Media after launching — and shutting down — 3 of our own ventures. Every time, the products were good, the teams were dedicated, but marketing broke everything.
@@ -35,27 +35,29 @@ export default function WizonStorySection() {
       </motion.div>
 
       {/* Highlight Box */}
+      <div className='w-full flex justify-end '>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
-        className="border border-green-400 w-78 whitespace-nowrap p-3 rounded-md mt-6"
+        className="border-2 border-green-400  whitespace-nowrap p-2 "
       >
-        <p className="text-base sm:text-lg">
+        <p className=" sm:text-[25px]">
           Today, Wizon Media is exactly that:
         </p>
       </motion.div>
+      </div>
 
       {/* Final Paragraph */}
-      <motion.p
+        <motion.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
-        className="text-end text-gray-800 max-w-4xl ml-auto text text-base sm:text-xl"
+        className="text-end text-gray-800 max-w-5xl ml-auto text text-base sm:text-[25px]"
       >
-        A high-performance team helping fashion brands grow with real business logic, proper content systems, and Meta Ads that convert.
+        A high-performance team helping fashion brands grow with <br /> real business logic, proper content systems, and Meta Ads that convert.
       </motion.p>
 
       {/* Button */}
@@ -72,7 +74,7 @@ export default function WizonStorySection() {
           transition={{ type: "spring", stiffness: 300 }}
           className="inline-block"
         >
-          <Button full="true" text="Book Free Consultation Now!" />
+          <Button full="true" text="Book Free Consultation Now!"/>
         </motion.div>
       </motion.div>
     </div>

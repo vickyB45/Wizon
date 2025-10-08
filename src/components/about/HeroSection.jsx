@@ -12,7 +12,7 @@ const HeroSection = () => {
         viewport={{ once: true, amount: 0.3 }} // 👈 triggers when 30% in view
         className="md:w-[60%] text-center md:text-left"
       >
-        <h1 className="text-4xl md:text-5xl heading font-[500] leading-tighter text-zinc-900">
+        <h1 className="text-4xl md:text-[50px] heading font-[500] leading-tighter text-zinc-900">
           We Scale{" "}
           <span className="bg-black text-white px-2">Fashion Brands</span>{" "}
           With Business-Backed
