@@ -14,7 +14,7 @@ export default function MissionSection() {
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                             viewport={{ once: true, amount: 0.3 }}
-                            className="bg-black text text-white px-6 py-2 font-semibold text-sm md:text-3xl whitespace-nowrap"
+                            className="bg-black text text-white sm:px-6 py-2 font-semibold text-sm md:text-3xl whitespace-nowrap"
                         >
                             OUR MISSION
                         </motion.div>
@@ -43,7 +43,7 @@ export default function MissionSection() {
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         viewport={{ once: true, amount: 0.3 }}
-                        className="bg-black text text-white px-6 py-2 font-semibold text-sm md:text-3xl whitespace-nowrap"
+                        className="bg-black text text-white sm:px-6 py-2 font-semibold text-sm md:text-3xl whitespace-nowrap"
                     >
                         MEET THE FOUNDER
                     </motion.div>

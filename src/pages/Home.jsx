@@ -15,7 +15,7 @@ const Home = () => {
     const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   return (
-    <div>
+    <div className='w-full overflow-hidden'>
         <ScalingSection/>
         <GrowthSection />
         <GraphicPortfolio />
@@ -28,7 +28,7 @@ const Home = () => {
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1, ease: "easeOut" }}
-      className="max-w-5xl mx-auto"
+      className="max-w-5xl mx-auto py-10 mt-10"
     >
       <div className="border-2 p-4 rounded-xl">
         <h3 className="text-center">
@@ -38,7 +38,7 @@ const Home = () => {
         </h3>
 
         <div className="md:px-6">
-          <p className="py-2 mt-4 tracking-tight text-lg md:text-2xl text md:leading-4 leading-8">
+          <p className="py-2 mt-4 tracking-tight text-lg md:text-2xl text md:leading-6 leading-8">
             We follow our{" "}
             <span className="inline-block border-red-600 border-2">
               Business-Led Growth
@@ -46,19 +46,19 @@ const Home = () => {
             System — a Proven Framework to scale fashion brands beyond ₹10L/month profitably.
           </p>
 
-          <p className="py-2 mt-4 tracking-tight text-lg md:text-2xl text md:leading-4 leading-8">
+          <p className="py-2 mt-4 tracking-tight text-lg md:text-2xl text md:leading-6 leading-8">
             We don't just run ads. <br />
             We combine your business number, customer behavior, Meta Ads data, and
             high-converting content (like UGC & influencer collabs) to build a real
             growth engine.
           </p>
 
-          <p className="py-2 mt-4 tracking-tight text-lg md:text-2xl text md:leading-4 leading-8">
+          <p className="py-2 mt-4 tracking-tight text-lg md:text-2xl text md:leading-6 leading-8">
             Everything we do is backed by data, psychology, and proven strategy — not
             random trends.
           </p>
 
-          <p className="py-2 mt-4 tracking-tight text-lg md:text-2xl text md:leading-4 leading-8">
+          <p className="py-2 mt-4 tracking-tight text-lg md:text-2xl text md:leading-6 leading-8">
             <span className="inline-block border-green-600 border-2">Our Goal?</span>{" "}
             <br />
             To turn your fashion into a profitable, scalable business — not just

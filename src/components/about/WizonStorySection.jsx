@@ -21,7 +21,7 @@ export default function WizonStorySection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
-        className="text-gray-800 max-w-5xl text-[25px] text space-y-5"
+        className="text-gray-800 max-w-5xl text-[20px] md:text-[25px] text space-y-5"
       >
         <p className="text-start">
           We started Wizon Media after launching — and shutting down — 3 of our own ventures. Every time, the products were good, the teams were dedicated, but marketing broke everything.

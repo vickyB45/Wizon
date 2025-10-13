@@ -66,7 +66,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-20 font-sans text-[#1a1a1a]">
+    <section className="py-16  sm:px-6 lg:px-20 font-sans text-[#1a1a1a]">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-center text-3xl sm:text-4xl font-semibold mb-5 uppercase tracking-wide">
           Frequently Asked <span className="border-2 heading border-[#d32f2f]">Question?</span>

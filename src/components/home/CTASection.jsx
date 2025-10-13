@@ -54,7 +54,7 @@ const CTASection = () => {
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="px-2 md:px-8 py-4 rounded-full cursor-pointer bg-black border-2 border-red-600 text-white md:text-[19px] font-[500] whitespace-nowrap tracking-wide  hover:text-white transition"
+            className="px-2 md:px-8 py-4 rounded-full cursor-pointer bg-black border-2 border-red-600 text-white text-[15px] md:text-[19px] font-[500] md:whitespace-nowrap tracking-wide  hover:text-white transition"
           >
             BOOK YOUR FREE STRATEGY CALL
           </motion.button>

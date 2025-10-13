@@ -13,7 +13,7 @@ const About = () => {
       <WizonTeamSection />
 
       {/* Divider + Heading Section */}
-      <div className="w-full flex flex-col md:flex-row justify-center md:justify-start items-center md:items-center gap-3 md:gap-0 mt-12 md:mt-0">
+      <div className="w-full py-10 flex flex-col md:flex-row justify-center md:justify-start items-center md:items-center gap-3 md:gap-0 md:mt-20">
   {/* Divider */}
   <motion.div
     initial={{ width: 0, opacity: 0 }}
@@ -30,7 +30,7 @@ const About = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
-      className="bg-black text text-white px-4 md:px-6 py-1 font-semibold text-3xl heading whitespace-nowrap rounded-md md:rounded-none"
+      className="bg-black text text-white px-4 md:px-6 py-1 font-semibold text-3xl heading sm:whitespace-nowrap rounded-md md:rounded-none"
     >
       HOW IT ALL STARTED
     </motion.div>
