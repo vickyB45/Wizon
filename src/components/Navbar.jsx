@@ -29,7 +29,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className="flex items-center justify-between px-6 py-4  max-w-5xl mx-auto relative">
+    <nav className="flex items-center justify-between px-6 py-4  max-w-6xl mx-auto relative">
       {/* ===== MOBILE VIEW ===== */}
       <div className="flex items-center justify-between w-full md:hidden relative">
         {/* Left: Menu Icon */}

@@ -3,14 +3,14 @@ import { motion } from "framer-motion";
 
 const GrowthSection = () => {
   return (
-    <section className="relative py-12 md:mt-10 overflow-hidden">
+    <section className="relative py-12 h-full  md:mt-10 overflow-hidden">
       {/* Slanted Black Bar */}
     <motion.div
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="absolute top-0 left-0 w-full md:rotate-2 rotate-4 origin-top-left bg-black text-white py-2 md:py-1.5 text-[16px] md:text-[25px] tracking-wide"
+        className="absolute top-0 left-0 w-[101vw] md:rotate-2 rotate-4 origin-top-left bg-black text-white py-2 md:py-1.5 text-[16px] md:text-[25px] tracking-wide"
       >
         <marquee
           behavior="scroll"

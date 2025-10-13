@@ -31,17 +31,38 @@ const WizonSection = () => {
       </p>
 
       </div>
-      {/* Logos */}
-      <div className=" overflow-hidden h-20 mt-10 w-screen flex items-center">
-  <img className="h-full object-contain" src="/image/homeBanner.png" alt="" />
-  <img className="h-full object-contain" src="/image/homeBanner.png" alt="" />
-  <img className="h-full object-contain" src="/image/homeBanner.png" alt="" />
-  <img className="h-full object-contain" src="/image/homeBanner.png" alt="" />
-  <img className="h-full object-contain" src="/image/homeBanner.png" alt="" />
-  <img className="h-full object-contain" src="/image/homeBanner.png" alt="" />
-  <img className="h-full object-contain" src="/image/homeBanner.png" alt="" />
-  <img className="h-full object-contain" src="/image/homeBanner.png" alt="" />
+     {/* Logos */}
+{/* Logos */}
+<div className="overflow-hidden h-20 mt-10 w-screen">
+  <div
+    className="flex whitespace-nowrap"
+    style={{
+      display: "inline-flex",
+      animation: "marquee 5s linear infinite",
+    }}
+  >
+    {Array.from({ length: 30 }).map((_, i) => (
+      <img
+        key={i}
+        className="h-20 object-contain"
+        src="/image/homeBanner.png"
+        alt=""
+      />
+    ))}
+  </div>
+
+  <style jsx>{`
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  `}</style>
 </div>
+
 
     </motion.section>
   );

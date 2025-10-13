@@ -2,9 +2,9 @@
 
 const FashionBrand = () => {
   return (
-    <section className="relative mt-10 w-[103vw] -rotate-3 overflow-hidden h-[60px] md:h-[100px]">
+    <section className="relative mt-12  mr-3  py-10 h-[60px] md:h-[100px]">
       {/* Slanted Black Bar with Marquee */}
-      <div className="absolute top-0 left-0  bg-black text-white py-3">
+      <div className="absolute top-0 -left-1 w-[101vw] bg-black -md:rotate-2 -rotate-4  text-white py-3">
         <marquee
           behavior="scroll"
           direction="left"

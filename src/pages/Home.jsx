@@ -28,7 +28,7 @@ const Home = () => {
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1, ease: "easeOut" }}
-      className="max-w-5xl mx-auto py-10 mt-10"
+      className="max-w-5xl mx-auto py-10"
     >
       <div className="border-2 p-4 rounded-xl">
         <h3 className="text-center">
