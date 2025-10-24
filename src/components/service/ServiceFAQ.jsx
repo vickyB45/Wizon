@@ -6,43 +6,29 @@ import { Plus, Minus } from "lucide-react"; // for + and - icons (lucide-react)
 
 const faqs = [
   {
-    question: "How long have you been doing this?",
+    question: "Do you really handle everything in-house?",
     answer:
-      "We’ve been helping D2C fashion brands scale profitably since 2021. Our frameworks are battle–tested, not experimental.",
+      "Yes — every part of our Meta Ads execution is handled 100% in-house, from strategy to creatives to optimization. No outsourcing, no freelancers — just tight control, faster results, and full accountability.",
   },
   {
-    question: "How many brands do you work with at a time?",
+    question: "How do you start working on Meta Ads?",
     answer:
-      "We only work with 8–10 brands at a time — to give each one the deep focus and support they deserve.",
+      "We begin by deep-diving into your business — analyzing margins, audiences, past ad data, and competitors to craft a data-backed strategy instead of random testing.",
   },
   {
-    question: "How does communication happen?",
+    question: "Who creates the ad creatives?",
     answer:
-      "You’ll be added to a dedicated WhatsApp group with our team. Regular updates happen via voice notes, calls, and quick messages. No long wait times.",
+      "Our in-house creative team produces all visuals and copies. From UGCs to reels to static ads, everything is designed around proven conversion principles and your brand’s tone.",
   },
   {
-    question: "Do you do weekly reporting?",
+    question: "Do you optimize and manage ads daily?",
     answer:
-      "Yes — every week, you’ll get a clear performance report with action points. At the end of each month, we also do a full business-side P&L review to improve strategy.",
-  },
-  {
-    question: "What’s included in the scope of work?",
-    answer:
-      "We manage everything around Meta Ads — research, creative direction, strategy, setup, optimization, and scaling. We also advise on content, website fixes, product–market fit, and anything that affects results.",
-  },
-  {
-    question: "Do you also manage influencer content or reels?",
-    answer:
-      "Not in this offer. But we guide you on what content works best and how to create ads that convert. If needed, we have a separate UGC+Content package.",
-  },
-  {
-    question: "How soon can we expect results?",
-    answer:
-      "Most brands start seeing early improvements in 2–3 weeks. Clear results (30%+ growth or reduced CAC) usually within the first 30 days.",
+      "Absolutely. Our internal team monitors, tests, and scales campaigns daily. No delays, no autopilot — every move is data-led for better ROAS and long-term profitability.",
   },
 ];
 
-export default function FAQ() {
+
+export default function ServiceFAQ() {
   const [openIndexes, setOpenIndexes] = useState([]);
 
   const toggleFAQ = (index) => {
@@ -57,12 +43,6 @@ export default function FAQ() {
 
   return (
     <div className="max-w-[1000px] mx-auto py-12 px-4">
-      <h2 className="text-3xl md:text-5xl heading font-bold text-center mb-12 uppercase tracking-wide">
-        <span className="inline-block border-3 border-red-600">
-          Questions
-        </span>{" "}
-        In Your Mind
-      </h2>
 
       <div className="space-y-4 text">
         {faqs.map((faq, index) => (

@@ -1,24 +1,28 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
 
 const GrowthSection = () => {
   return (
-    <section className="relative py-12 h-full  md:mt-10 overflow-hidden">
+    <section className="relative py-8 bg-[url(/image/home1.jpg)] bg-cover bg-center px-3 h-full md:mt-10 overflow-hidden ">
       {/* Slanted Black Bar */}
-    <motion.div
+        <div className="absolute inset-0 z-0 bg-white/90"></div> 
+
+      <motion.div
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="absolute top-0 left-0 w-[101vw] md:rotate-2 rotate-4 origin-top-left bg-black text-white py-2 md:py-1.5 text-[16px] md:text-[25px] tracking-wide"
+        className="absolute top-0 left-0 w-[101vw]  md:rotate-2 rotate-4 origin-top-left bg-black text-white py-2 md:py-1.5 text-[16px] md:text-[29px] tracking-wide"
       >
-        <marquee
-          behavior="scroll"
-          direction="left"
-          scrollamount="10"
-          className="flex items-center whitespace-nowrap"
+        <Marquee
+          speed={80}
+          gradient={false}
+          pauseOnHover={false}
+          loop={0} // infinite loop
+          className="flex items-center whitespace-nowrap gap-10"
         >
-          {/* Duplicate content for seamless loop */}
+          {/* Content without any spacing */}
           <span className="px-8">₹3.5Cr+ Sales</span>
           <span className="text-gray-400">|</span>
           <span className="px-8">₹1Cr+ Ad Spend</span>
@@ -26,17 +30,18 @@ const GrowthSection = () => {
           <span className="px-8">30+ Brands</span>
           <span className="text-gray-400">|</span>
 
+          {/* Repeated content for smooth loop */}
           <span className="px-8">₹3.5Cr+ Sales</span>
           <span className="text-gray-400">|</span>
           <span className="px-8">₹1Cr+ Ad Spend</span>
           <span className="text-gray-400">|</span>
           <span className="px-8">30+ Brands</span>
           <span className="text-gray-400">|</span>
-        </marquee>
+        </Marquee>
       </motion.div>
 
       {/* Main Content */}
-      <div className="max-w-5xl mx-auto mt-28 px-4 sm:px-6 md:px-0 text-end">
+      <div className="max-w-6xl md:py-20 border-l-4 z-10 bg-transparent relative mx-auto mt-18 px-4 sm:px-6 md:px-0 text-end">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +49,7 @@ const GrowthSection = () => {
           viewport={{ once: true }}
           className="text-3xl sm:text-4xl md:text-5xl tracking-tight heading font-[500] text-gray-900"
         >
-          <span className="text-[#a8b630]">Founded in 2022,</span> Growing Strong
+          <span className="text-[#ccca1e]">Founded in 2022,</span> Growing Strong
         </motion.h2>
 
         <motion.p
@@ -52,7 +57,7 @@ const GrowthSection = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-gray-700 mt-6 text-xl sm:text-xl md:text-2xl text-end leading max-w-[600px] ml-auto"
+          className="text-gray-700 mt-6 text text-xl sm:text-xl md:text-2xl text-end leading max-w-[600px] ml-auto"
         >
           We’ve helped 30+ D2C brands generate over ₹3.5 Cr+ in revenue through
           high-performance Facebook Ads.
@@ -63,14 +68,14 @@ const GrowthSection = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-gray-700 mt-6 text-base sm:text-xl md:text-2xl"
+          className="text-gray-700 mt-6 text text-base sm:text-xl md:text-2xl"
         >
           Whether you're at ₹0 or ₹30L/month — <br />
           we scale with strategy, not guesswork.
         </motion.p>
       </div>
 
-      <h3 className="md:mt-44 mt-10 text-3xl sm:text-4xl md:text-5xl text-center font-semibold heading">
+      <h3 className="mt-10 z-10 bg-transparent relative text-3xl sm:text-4xl md:text-5xl text-center font-semibold heading">
         GRAPHIC PORTFOLIO
       </h3>
     </section>

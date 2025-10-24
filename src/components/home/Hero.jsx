@@ -14,10 +14,15 @@ const Hero = () => {
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1, delay: 0.3, type: "spring" }}
-        className="text-[34px] font-[500] sm:text-5xl md:text-6xl leading-snug text sm:leading-18 text-gray-900 max-w-md sm:max-w-4xl "
+        className="text-[40px] font-[500] sm:text-5xl md:text-6xl heading leading-snug text sm:leading-18 text-gray-900 max-w-md sm:max-w-4xl "
       >
-        Is Your <span className="border-3 px-2 inline-block border-green-500 py-0">Revenue</span> Stuck <br />
+        Is Your{" "}
+        <span className="border-3  inline-block border-green-500 py-0">
+          Revenue
+        </span>
+        <br className="sm:hidden" />
         Between{" "}
+        Stuck <br className="sm:hidden" />
         <motion.span
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -25,15 +30,15 @@ const Hero = () => {
           className="font-bold border-b-4 border-red-500"
         >
           ₹5L–₹10L/Month
-        </motion.span>{" "}
-        <br />
+        </motion.span>
+        <br className="sm:hidden" />
         <motion.span
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
           className="block mt-1 sm:mt-2"
         >
-          — No Matter What You Try?
+          — No Matter <br className="sm:hidden" /> What You Try?
         </motion.span>
       </motion.h1>
 
@@ -42,7 +47,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1 }}
-        className="mt-6 sm:mt-8 text text-base sm:text-2xl font-[500] leading-4 text-gray-700 max-w-sm sm:max-w-3xl px-2"
+        className="mt-6 sm:mt-8 text text-base text sm:text-2xl font-[500] leading-4 text-gray-700 max-w-sm sm:max-w-3xl px-2"
       >
         We help fashion brands cross{" "}
         <motion.span
@@ -63,7 +68,7 @@ const Hero = () => {
             type: "spring",
             stiffness: 200,
           }}
-          className="inline-block text-sm text mt-2 px-3 py-1 pb-1 bg-green-500 text-white font-semibold rounded"
+          className="inline-block  text mt-2 px-3 py-2 pb-3 bg-green-500 text-white  rounded"
         >
           profitably
         </motion.span>{" "}

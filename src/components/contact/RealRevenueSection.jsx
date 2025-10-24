@@ -17,7 +17,7 @@ const fadeUp = {
 
 const RealRevenueSection = () => {
   return (
-    <section className="text-center text py-16 px-6 overflow-hidden">
+    <section className="text-center text py-10 md:py-6 px-6 overflow-hidden">
       <motion.div
         variants={container}
         initial="hidden"
@@ -43,14 +43,14 @@ const RealRevenueSection = () => {
         {/* Red-bordered words */}
         <motion.div
           variants={fadeUp}
-          className="flex flex-wrap justify-center gap-6 mt-10"
+          className="flex flex-wrap justify-center gap-4 md:gap-24 mt-10"
         >
           {["BRAND", "MARGINS", "AUDIENCE", "PRODUCTS"].map((word, i) => (
             <motion.span
               key={word}
               variants={fadeUp}
               transition={{ delay: i * 0.15 }}
-              className="border-2 border-red-500 px-4 py-2 font-bold text-2xl text-black"
+              className="border-2 border-red-500 px-4 py-2 font-bold text[22px] md:text-2xl text-black"
             >
               {word}
             </motion.span>
@@ -73,7 +73,7 @@ const RealRevenueSection = () => {
 
         {/* Underline Animation */}
         <motion.div
-          className="w-32 h-[3px] bg-black mx-auto mt-6 rounded-full origin-left"
+          className="w-62 h-[3px] bg-black mx-auto mt-6 md:mt-20 rounded-full origin-left"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}

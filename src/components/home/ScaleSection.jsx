@@ -27,11 +27,11 @@ const ScaleSection = () => {
   }
 
   return (
-    <div className=" py-10 max-w-4xl mx-auto mt-12 text-center">
+    <div className=" py-10 max-w-4xl px-2 mx-auto text-center">
       {/* Header */}
       <motion.h2
         style={{ boxShadow: "7px 7px 0 #fff207" }}
-        className="text-[28px] md:text-5xl font-[500] hover:[box-shadow:7px 7px 0 #facc15] text inline-block bg-black text-white px-4 py-2 relative"
+        className="text-[28px] md:text-5xl font-[500]  hover:[box-shadow:7px 7px 0 #facc15] text inline-block bg-black text-white px-4 py-2 relative"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
@@ -42,7 +42,7 @@ const ScaleSection = () => {
 
       {/* Bullet Points */}
       <motion.div
-        className="mt-7 flex flex-col sm:flex-row gap-6 items-center sm:items-start justify-center"
+        className="mt-7 flex flex-row gap-6 items-center sm:items-start justify-center"
         variants={container}
         initial="hidden"
         whileInView="visible"
@@ -51,7 +51,7 @@ const ScaleSection = () => {
         {/* Left Number Column */}
         <motion.div
           style={{ boxShadow: "-2px 2px 0 #fff207" }}
-          className=" hidden md:flex flex-row sm:flex-col gap-2 bg-black text-white py-3 px-5 text text-[20px] sm:text-[23px] justify-center rounded-2xl"
+          className=" flex flex-col gap-9 md:gap-2 bg-black text-white md:py-3 py-2 md:px-5 px-2 text text-[20px] sm:text-[23px] justify-center rounded md:rounded-2xl"
           variants={item}
         >
           {[1, 2, 3, 4, 5, 6, 7].map((num) => (

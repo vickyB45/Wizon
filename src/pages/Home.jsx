@@ -23,16 +23,19 @@ const Home = () => {
         <WizonSection/>
         <ComparisonTable/>
         <FashionBrand />
-        <motion.div
+
+       <div className="bg-gradient-to-b from-white via-black/10 to-white">
+
+          <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1, ease: "easeOut" }}
-      className="max-w-5xl mx-auto py-10"
+      className="max-w-5xl px-1 mx-auto py-10"
     >
-      <div className="border-2 p-4 rounded-xl">
+      <div className="border-2 p-4 bg-white rounded-2xl md:rounded-4xl">
         <h3 className="text-center">
-          <span className="bg-black text-4xl font-bold text-yellow-300 heading px-2 py-1 rounded">
+          <span className="bg-black text-4xl font-bold text-[#fffd2f] heading px-2 py-1 rounded">
             How We Scale Fashion Brands?
           </span>
         </h3>
@@ -68,6 +71,7 @@ const Home = () => {
       </div>
     </motion.div>
         <FAQSection/>
+        </div>
     </div>
   )
 }

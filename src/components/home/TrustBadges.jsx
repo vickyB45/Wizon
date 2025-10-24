@@ -14,7 +14,7 @@ export default function TrustBadges() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // delay between children animations
+        staggerChildren: 0.2,
       },
     },
   };
@@ -33,20 +33,20 @@ export default function TrustBadges() {
 
   return (
     <motion.div
-      className="flex py-10 flex-wrap md:justify-evenly items-center gap-3 md:gap-8 md:py-6"
+      className="flex py-10 sm:justify-evenly justify-center items-center px-1 gap-2 sm:gap-6 overflow-x-auto whitespace-nowrap sm:px-4"
       variants={containerVariants}
       initial="hidden"
-      whileInView="show" // animate when visible in viewport
-      viewport={{ once: true, amount: 0.3 }} // triggers once
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
     >
       {items.map((text, idx) => (
         <motion.div
           key={idx}
-          className="flex items-center gap-2"
+          className="flex items-center sm:gap-2 "
           variants={itemVariants}
         >
-          <HiMiniCheckBadge className="text-green-600 w-8 h-8" />
-          <span className=" text-black text-[20px] tracking-tight font-[700] text">
+          <HiMiniCheckBadge className="text-green-600 sm:w-8 sm:h-8 flex-shrink-0" />
+          <span className="text-black sm:text-[20px] text-[11px] font-[500] sm:font-bold whitespace-nowrap">
             {text}
           </span>
         </motion.div>

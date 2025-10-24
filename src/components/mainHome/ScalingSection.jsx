@@ -9,36 +9,112 @@ const ScalingSection = () => {
   return (
     <section
       ref={ref}
-      className="flex flex-col heading md:flex-row justify-between items-center px-4 sm:px-8 md:px-16 py-12 overflow-hidden"
+      className="flex flex-col md:flex-row justify-between items-center   md:px-16 py-12 overflow-hidden"
     >
-      {/* Left Text Section */}
+      {/* LEFT TEXT SECTION */}
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.9, ease: "easeOut" }}
-        className="text-left text-7xl sm:text-8xl md:text-[109px] font-[600] leading-[1.1] md:leading-[1.05] tracking-tight"
+        className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left"
       >
-        <h1 className="text-black">
-          Scaling <br />
-          <span className="">D2C Brands</span>
+        {/* Top Line — Scaling + Round icon on mobile */}
+        <div className="flex items-center justify-center md:justify-start gap-3">
+          <h1 className="text-black text-7xl sm:text-6xl md:text-[109px] font-semibold leading-[1.1] tracking-tight heading">
+            Scaling
+          </h1>
+
+          {/* 🔹 Round Rotating Circle (only visible on mobile) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+            animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
+            transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+            className="relative w-[120px] h-[120px] sm:w-[90px] sm:h-[90px] md:hidden flex justify-center items-center"
+          >
+            {/* Rotating Text */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
+              className="absolute inset-0"
+            >
+              <svg
+                viewBox="0 0 300 300"
+                className="w-full h-full"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <path
+                    id="circlePathMobile"
+                    d="M150,150 m-120,0 a120,120 0 1,1 240,0 a120,120 0 1,1 -240,0"
+                  />
+                </defs>
+                <text fill="#000" fontSize="35" fontWeight="500" textAnchor="middle">
+                  <textPath xlinkHref="#circlePathMobile" startOffset="50%" textLength="750">
+                    • ROI FOCUSED • D2C • META ADS • SCALE BRANDS 
+                  </textPath>
+                </text>
+              </svg>
+            </motion.div>
+
+            {/* Center Image */}
+            <img
+              src="/image/circle-center.png"
+              alt="center"
+              className="absolute top-1/2 left-1/2 w-[70px] h-[70px] -translate-x-1/2 -translate-y-1/2 object-contain drop-shadow-md"
+            />
+          </motion.div>
+        </div>
+
+        {/* D2C Brands line */}
+        <h1 className="text-black text-7xl sm:text-6xl md:text-[109px] font-semibold tracking-tight heading">
+          D2C Brands
         </h1>
 
-        <p className="mt-6 text-2xl sm:text-3xl md:text-5xl font-[400] text text-black leading-snug">
+        {/* Subtext */}
+        <p className="mt-6 text  text-start relative -left-3.5 text-2xl sm:text-2xl md:text-5xl font-normal text-black">
           with{" "}
-          <span className="bg-black text-[#e4fb03] px-3 py-1 rounded-md md:text-5xl">
+          <span className= " text bg-black text-[#ccca1e] px-3 py-1 rounded-md">
             No-Fluff Meta Ads
           </span>
         </p>
       </motion.div>
 
-      {/* Right Circular Text + Arrow Icon */}
+      {/* DESKTOP RIGHT SIDE CIRCLE */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
         animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
         transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
-        className="relative mt-10 md:mt-0  hidden md:flex justify-center"
+        className="relative mt-10 md:mt-0 hidden md:flex justify-center items-center w-[250px] h-[250px]"
       >
-        <img className="w-48 sm:w-56 md:w-72 lg:w-80" src="/image/home.png" alt="" />
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 14, ease: "linear" }}
+          className="absolute inset-0"
+        >
+          <svg
+            viewBox="0 0 300 300"
+            className="w-full h-full"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <path
+                id="circlePathDesktop"
+                d="M150,150 m-120,0 a120,120 0 1,1 240,0 a120,120 0 1,1 -240,0"
+              />
+            </defs>
+            <text fill="#000" fontSize="22" fontWeight="500" textAnchor="middle">
+              <textPath xlinkHref="#circlePathDesktop" startOffset="50%" textLength="750" className="text-3xl">
+                • ROI FOCUSED • D2C • META ADS • SCALE BRANDS 
+              </textPath>
+            </text>
+          </svg>
+        </motion.div>
+
+        <img
+          src="/image/circle-center.png"
+          alt="center"
+          className="absolute top-1/2 left-1/2 w-[100px] h-[100px] -translate-x-1/2 -translate-y-1/2 object-contain drop-shadow-md"
+        />
       </motion.div>
     </section>
   );

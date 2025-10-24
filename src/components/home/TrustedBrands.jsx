@@ -55,7 +55,7 @@ const TrustedBrands = () => {
     <div className="">
       {/* Heading */}
       <motion.h2
-        className="text-4xl max-w-6xl mx-auto md:text-[50px] text text-center font-[700] py-4"
+        className="text-4xl max-w-[1000px] mx-auto md:text-[50px] text text-center font-[700] py-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
@@ -69,7 +69,7 @@ const TrustedBrands = () => {
       </motion.h2>
 
       {/* Swiper Section */}
-      <div className="max-w-6xl mx-auto px-4 pb-10">
+      <div className="max-w-[1100px] mx-auto px-4 pb-10">
         <Swiper
           modules={[Autoplay]}
           autoplay={{ delay: 1500, disableOnInteraction: false }}
@@ -87,7 +87,7 @@ const TrustedBrands = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
-                className="bg-black text text-white rounded-2xl p-6 cursor-grab active:cursor-grabbing min-h-[230px] flex flex-col justify-between"
+                className="bg-black text text-white rounded p-6 cursor-grab active:cursor-grabbing min-h-[230px] flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center gap-3 mb-4">

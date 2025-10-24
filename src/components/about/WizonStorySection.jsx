@@ -43,7 +43,7 @@ export default function WizonStorySection() {
         viewport={{ once: true, amount: 0.3 }}
         className="border-2 border-green-400  whitespace-nowrap p-2 "
       >
-        <p className=" sm:text-[25px]">
+        <p className=" sm:text-[25px] text">
           Today, Wizon Media is exactly that:
         </p>
       </motion.div>

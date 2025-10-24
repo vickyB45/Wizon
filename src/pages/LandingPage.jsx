@@ -4,12 +4,12 @@ import TrustBadges from '../components/home/TrustBadges'
 import CardLanding from '../components/ui/CardLanding'
 import { motion } from "framer-motion"
 import StuckSales from '../components/home/StuckSales'
-import CardLanding2 from '../components/ui/CardLanding2'
-import ScaleSection from '../components/home/ScaleSection'
 import TrustedBrands from '../components/home/TrustedBrands'
 import CTASection from '../components/home/CTASection'
 import FAQ from '../components/FAQ'
 import ContactForm from '../components/ContactForm'
+import CarouselSection from '../components/home/CarouselSection '
+import ScaleSection from '../components/home/ScaleSection'
 
 const LandingPage = () => {
 
@@ -70,70 +70,15 @@ const LandingPage = () => {
 
 
       <StuckSales />
+<CarouselSection />
 
-     <div className="py-8 sm:py-12 md:mt-8 sm:mt-16 px-4 sm:px-0">
-  {/* Animated Heading */}
-  <motion.h2
-    className="text-center text-4xl md:text-[52px] text tracking-tight leading-snug"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.4 }}
-    transition={{ duration: 0.6, ease: "easeOut" }}
-  >
-    Here's What Changes When{" "}
-    <span className="font-[600] border-b-[3px] border-green-500">
-      We Partner
-    </span>
-  </motion.h2>
-
-  {/* Animated Grid */}
-  <motion.div
-    className="grid grid-cols-1 p-2 gap-4 max-w-5xl mx-auto  sm:grid-cols-2 sm:gap-8 md:grid-cols-3 mt-6 sm:mt-10"
-    variants={containerVariants}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, amount: 0.3 }}
-  >
-    {[
-      {
-        heading: "Clear Strategy",
-        text: "Get a custom, data-backed plan to scale your brand without guesswork.",
-      },
-      {
-        heading: "Optimized for Profit",
-        text: "We build a real acquisition machine — not just pretty ROAS on paper.",
-      },
-      {
-        heading: "Consistent Growth",
-        text: "No more up-down sales. We engineer month-on-month stability.",
-      },
-      {
-        heading: "Strategy-Led Content",
-        text: "Ads your customers actually want to see — and buy from.",
-      },
-      {
-        heading: "A Partner, Not Agency",
-        text: "From website to products, we guide what drives real growth — not just ads.",
-      },
-    ].map((item, i) => (
-      <motion.div
-        key={i}
-        variants={itemVariants}
-        className=""
-      >
-        <CardLanding2 heading={item.heading} text={item.text} />
-      </motion.div>
-    ))}
-  </motion.div>
-
-
-        <ScaleSection />
-      </div>
+<ScaleSection />
+    
 
       <TrustedBrands />
       <CTASection />
       <FAQ />
-      <ContactForm />
+      {/* <ContactForm /> */}
       
     </div>
   )

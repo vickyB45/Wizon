@@ -21,7 +21,7 @@ const VideoSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-full max-w-4xl  rounded-2xl overflow-hidden shadow-xl border relative bg-black"
+          className="w-full max-w-5xl rounded-2xl  md:rounded-[50px] overflow-hidden shadow-xl border-2 md:border-4 relative bg-black"
         >
           {/* Video with subtle animation when playing */}
           <motion.video

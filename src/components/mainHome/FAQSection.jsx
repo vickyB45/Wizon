@@ -63,31 +63,38 @@ We Don’t Leave Chance Of Error™`,
 ];
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndexes, setOpenIndexes] = useState([]);
+
+  const toggleFAQ = (i) => {
+    setOpenIndexes((prev) =>
+      prev.includes(i) ? prev.filter((idx) => idx !== i) : [...prev, i]
+    );
+  };
 
   return (
-    <section className="py-16  sm:px-6 lg:px-20 font-sans text-[#1a1a1a]">
+    <section className="py-16 sm:px-6 lg:px-20 font-sans text-[#1a1a1a]">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-center text-3xl sm:text-4xl font-semibold mb-5 uppercase tracking-wide">
-          Frequently Asked <span className="border-2 heading border-[#d32f2f]">Question?</span>
+          Frequently Asked{" "}
+          <span className="border-2 heading border-[#d32f2f]">Question?</span>
         </h2>
         <div className="space-y-2">
           {faqs.map((item, i) => (
-            <div key={i} className=" rounded-md   ">
+            <div key={i} className="rounded-md">
               <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full cursor-pointer flex justify-between items-center text-left px-5 py-5 text-[20px] font-medium text "
+                onClick={() => toggleFAQ(i)}
+                className="w-full cursor-pointer flex justify-between items-center text-left px-5 py-5 text-[20px] font-medium text"
               >
                 <span>{item.q}</span>
                 <ChevronDown
                   className={`h-5 w-5 text-gray-600 transition-transform duration-300 ${
-                    openIndex === i ? "rotate-180" : ""
+                    openIndexes.includes(i) ? "rotate-180" : ""
                   }`}
                 />
               </button>
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === i ? "max-h-[600px] px-5 pb-5" : "max-h-0"
+                  openIndexes.includes(i) ? "max-h-[600px] px-5 pb-5" : "max-h-0"
                 }`}
               >
                 <p className="text-gray-700 text text-[18.5px] leading-relaxed whitespace-pre-line">

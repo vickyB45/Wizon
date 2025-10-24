@@ -42,8 +42,8 @@ const StuckSales = () => {
         viewport={{ once: true, amount: 0.3 }}
       >
         {[
-          <>- YOUR CPA <span className="text-red-600">increases</span> the moment you try scaling ad budgets</>,
-          <>- <span className="inline-block border-t-3 border-red-600">You</span> 've worked with multiple freelancers, agencies, UGC creators but results don't sustain</>,
+          <>- You're CPA <span className="text-red-600">increases</span> the moment you try scaling ad budgets</>,
+          <>- <span className="">You</span> 've worked with multiple freelancers, agencies, UGC creators but results don't sustain</>,
           <>- Sales are <span className="text-red-600">inconsistent and unpredictable</span> week over week</>,
           <>- You're fixing ads when the <span className="text-red-600">real problem is in your offer, funnel, or PMF</span></>,
           <>- <span className="text-red-600">Content isn't built to scale</span> — it's random, reactive, and unstructured</>,

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Autoplay } from "swiper/modules"; // ✅ import autoplay module
 
 const videos = [
   { id: 1, src: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" },
@@ -44,9 +45,17 @@ export default function UGCPortfolio() {
           viewport={{ once: true }}
         >
           <Swiper
-            spaceBetween={20}
+            modules={[Autoplay]} // ✅ enable autoplay
+            spaceBetween={30}
+            loop={true} // ✅ continuous loop
+            autoplay={{
+              delay: 0, // no delay between slides
+              disableOnInteraction: false,
+              pauseOnMouseEnter: false,
+            }}
+            speed={3000} // ✅ smooth scrolling speed
+            slidesPerView={1}
             breakpoints={{
-              0: { slidesPerView: 1 },
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 4 },
             }}
@@ -54,11 +63,11 @@ export default function UGCPortfolio() {
           >
             {videos.map((item) => (
               <SwiperSlide key={item.id}>
-                <div className=" w-full h-[440px] overflow-hidden shadow hover:shadow-lg transition-all duration-300">
+                <div className="w-full h-[440px] overflow-hidden shadow hover:shadow-lg transition-all duration-300">
                   <img
                     src={item.src}
                     alt={`ugc-${item.id}`}
-                    className=" h-full w-full object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </div>
               </SwiperSlide>

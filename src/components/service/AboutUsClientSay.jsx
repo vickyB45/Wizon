@@ -25,10 +25,17 @@ const productsRow2 = [
   "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=800&q=80",
 ];
 
-export default function GraphicPortfolio() {
+export default function AboutUsClientSay() {
   return (
     <section className="">
       <div className="max-w-7xl mx-auto">
+        
+      <h2 className="text-3xl md:text-4xl heading font-bold text-center mb-12  tracking-wide">
+        What Our Client Say {" "}
+        <span className="inline-block border-3 border-red-600">
+           About Us
+        </span>{" "}
+      </h2>
 
         {/* First Row → Left to Right */}
         <motion.div
@@ -42,7 +49,7 @@ export default function GraphicPortfolio() {
           <Marquee speed={60} gradient={false} pauseOnHover={false} loop={0}>
             {productsRow1.map((img, i) => (
               <div key={i} className="px-2">
-                <img src={img} alt="" className="md:h-64 md:w-64 h-44 w-44 object-cover" />
+                <img src={img} alt="" className="md:h-64 md:w-64 rounded-2xl  h-44 w-44 object-cover" />
               </div>
             ))}
           </Marquee>
@@ -59,7 +66,7 @@ export default function GraphicPortfolio() {
           <Marquee speed={60} gradient={false} pauseOnHover={false} loop={0} direction="right">
             {productsRow2.map((img, i) => (
               <div key={i} className="px-2">
-                <img src={img} alt="" className="md:h-64 md:w-64 h-44 w-44 object-cover" />
+                <img src={img} alt="" className="md:h-64 md:w-64 h-44 w-44 rounded-2xl object-cover" />
               </div>
             ))}
           </Marquee>

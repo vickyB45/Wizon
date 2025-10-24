@@ -5,18 +5,19 @@ import { motion } from "framer-motion";
 const CTASection = () => {
   return (
     <div className="py-8 max-w-6xl mx-auto px-4">
-    <section className="flex justify-center items-center ">
+    <section className="flex justify-center items-center">
       <motion.div      
         style={{ boxShadow: "7px 7px 0 #fff207" }}
-        className="relative bg-[url(/image/1.jpg)] text-white rounded-2xl relative p-10 max-w-5xl w-full text-center shadow-lg border border-gray-800"
+        className="relative bg-[url(/image/1.jpg)] text-white rounded-3xl md:rounded-[45px] relative p-10 max-w-5xl w-full text-center shadow-lg border border-gray-800"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         {/* Yellow border shadow effect */}
-        <div className="absolute -bottom-2 -right-2 w-full h-full rounded-2xl border-2 border-black -z-10 "></div>
-        <div className="absolute left-0 top-0 w-full h-full rounded-2xl bg-black/60"></div>
+
+        <div className="absolute -bottom-2 -right-2 w-full h-full rounded-3xl md:rounded-[45px] border-5 border-black -z-10 "></div>
+        <div className="absolute left-0 top-0 w-full h-full rounded-3xl md:rounded-[45px] bg-black/60"></div>
 
         {/* Heading */}
        <div className="z-20 relative">
@@ -54,7 +55,7 @@ const CTASection = () => {
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="px-2 md:px-8 py-4 rounded-full cursor-pointer bg-black border-2 border-red-600 text-white text-[15px] md:text-[19px] font-[500] md:whitespace-nowrap tracking-wide  hover:text-white transition"
+            className=" px-2 py-3 rounded-3xl cursor-pointer bg-black border-3 border-red-600 text-white text-[15px] md:text-[19px] font-[700] md:whitespace-nowrap tracking-wide  hover:text-white transition"
           >
             BOOK YOUR FREE STRATEGY CALL
           </motion.button>
@@ -62,7 +63,7 @@ const CTASection = () => {
        </div>
       </motion.div>
     </section>
-      <h2 className="text-center text-xs md:text-2xl text font-[700] mt-5">WE'LL ADULT YOUR CURRENT SETUP AND SHOW YOU EXACTALY HOW WE'D SCALE YOUR BRAND. NO HARD SELL.</h2>
+      <h2 className="text-center text-xs md:px-20 md:text-2xl text font-[700] mt-5">WE'LL ADULT YOUR CURRENT SETUP AND SHOW YOU EXACTALY HOW WE'D SCALE YOUR BRAND. NO HARD SELL.</h2>
       </div>
   );
 };

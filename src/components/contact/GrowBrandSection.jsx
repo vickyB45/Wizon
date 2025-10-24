@@ -7,7 +7,7 @@ const GrowBrandSection = () => {
     <section className="text-center text pt-16 px-4 overflow-hidden">
       {/* Heading Animation */}
       <motion.h2
-        className="text-3xl md:text-[54px] font-bold text-gray-900"
+        className="text-6xl md:text-[54px] tracking-tight font-bold text-gray-900"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -40,7 +40,7 @@ const GrowBrandSection = () => {
 
       {/* Paragraph Animation */}
       <motion.p
-        className="text-gray-700 text-lg  md:text-2xl leading-7 mt-6 max-w-4xl mx-auto"
+        className="text-gray-700 text-[22px] text  md:text-2xl leading-9 mt-8 m:mt-6 max-w-4xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}

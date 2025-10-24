@@ -10,14 +10,14 @@ const fadeUp = {
 
 const ContactSection = () => {
   return (
-    <section className="text-center py-8 px-4 overflow-hidden">
+    <section className="text-center px-1 py-8 md:px-4 overflow-hidden">
       {/* Heading */}
       <motion.h2
         variants={fadeUp}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="text-3xl md:text-[45px] font-[500] tracking-tight text-black mb-10"
+        className="md:text-3xl text-3xl md:text-[45px] font-[500] tracking-tight text-black mb-10"
         style={{
           textShadow: "2px 2px 0 #fffb00", // same as Tailwind's yellow-400
         }}
@@ -39,7 +39,7 @@ const ContactSection = () => {
             <input
               type="text"
               placeholder="First Name"
-              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 text-3xl "
+              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 md:text-3xl text-2xl "
             />
           </div>
 
@@ -48,7 +48,7 @@ const ContactSection = () => {
             <input
               type="text"
               placeholder="Last Name"
-              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 text-3xl "
+              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 md:text-3xl text-2xl "
             />
           </div>
 
@@ -57,7 +57,7 @@ const ContactSection = () => {
             <input
               type="text"
               placeholder="Phone Number"
-              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 text-3xl "
+              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 md:text-3xl text-2xl "
             />
           </div>
 
@@ -66,7 +66,7 @@ const ContactSection = () => {
             <input
               type="email"
               placeholder="Email ID"
-              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 text-3xl "
+              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 md:text-3xl text-2xl "
             />
           </div>
 
@@ -75,13 +75,13 @@ const ContactSection = () => {
             <input
               type="text"
               placeholder="Brand Name"
-              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 text-3xl "
+              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 md:text-3xl text-2xl "
             />
           </div>
 
           {/* Meta Ads Dropdown */}
           <div>
-            <select className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-400 text-3xl   bg-transparent">
+            <select className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-400 md:text-3xl text-2xl   bg-transparent">
               <option value="">Meta Ads</option>
               <option>Yes</option>
               <option>No</option>
@@ -93,7 +93,7 @@ const ContactSection = () => {
             <input
               type="text"
               placeholder="Monthly Budget"
-              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 text-3xl "
+              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 md:text-3xl text-2xl "
             />
           </div>
 
@@ -101,26 +101,30 @@ const ContactSection = () => {
           <div className="md:col-span-2">
             <textarea
               placeholder="Describe your brand and vision"
-              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 text-3xl "
+              className="w-full border-b-[3px] inline-block  focus:outline-none text-gray-800 placeholder-gray-400 md:text-3xl text-2xl "
             ></textarea>
           </div>
         </form>
 
         {/* Contact Button */}
         <motion.div
-          className="text-center my-4 text-xs md:text[16px]  mx-3"
+          className="text-center my-4 text-xl md:text[16px]  mx-3"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
         >
           <motion.div
-            whileHover={{ scale: 1.08 }}
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
             className="inline-block"
           >
-            <Button text="Contact Now" />
+<button
+  className="px-6 md:px-18 py-2 rounded-2xl bg-black text-white shadow-[4px_4px_0_#eddd1d] hover:shadow-[9px_9px_0_#fde047] transition-all duration-200"
+>
+  Contact Now
+</button>
           </motion.div>
         </motion.div>
       </motion.div>
@@ -134,7 +138,7 @@ const ContactSection = () => {
         className="flex text flex-col md:flex-row justify-between max-w-4xl mx-auto mt-8 text-left"
       >
         {/* Left Box */}
-        <div className="  border-black px-3 py-2 md:px-4 md:py-3 text-sm md:text-base">
+        <div className="  border-black text-center px-3 py-2 md:px-4 md:py-3 text-sm md:text-base">
           <p className=" bg-black text-white inline-block px-2 py-1 text-2xl">Office Address :</p>
           <p className=" mt-1 text-xl  leading-6">
             T–267, G/F, Parampuri <br />
@@ -143,7 +147,7 @@ const ContactSection = () => {
         </div>
 
         {/* Right Box */}
-        <div className="  px-3 py-2 md:px-4 md:py-3 text-sm md:text-base mt-4 md:mt-0">
+        <div className="  px-3 py-2 text-center md:px-4 md:py-3 text-sm md:text-base mt-4 md:mt-0">
           <p className="tracking-tight border border-red-500 inline-block text-xl px-1 ">Reach Out At:</p>
           <p className="mt-1 text-xl  leading-6">
             Hello@wizonmedia.com <br />
