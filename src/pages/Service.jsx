@@ -18,12 +18,12 @@ const Service = () => {
               <motion.div
       initial={{ opacity: 0, y: -40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
       className="w-[101vw] py-3 mt-8 relative -left-1 -md:rotate-2 -rotate-4 origin-top-left bg-black text-white md:py-2 text-[17px] md:text-[25px] tracking-wide outline-dashed outline-4 outline-red-700"
     >
       <Marquee
-        speed={80}
+        speed={60}
         gradient={false}
         pauseOnHover={false}
         loop={0} // infinite loop

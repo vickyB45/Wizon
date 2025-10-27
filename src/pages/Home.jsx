@@ -35,7 +35,7 @@ const Home = () => {
     >
       <div className="border-2 p-4 bg-white rounded-2xl md:rounded-4xl">
         <h3 className="text-center">
-          <span className="bg-black text-4xl font-bold text-[#fffd2f] heading px-2 py-1 rounded">
+          <span className="bg-black text-xl md:text-4xl whitespace-nowrap font-bold text-[#fffd2f] heading px-2 py-1 rounded">
             How We Scale Fashion Brands?
           </span>
         </h3>

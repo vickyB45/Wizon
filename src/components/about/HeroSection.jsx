@@ -15,8 +15,8 @@ const HeroSection = () => {
         <h1 className="md:text-6xl text-5xl md:text-[50px] heading font-[500] leading-tighter text-zinc-900 text-center">
           <span className="block md:inline">We Scale</span>{" "}
           <span className=" md:inline bg-black inline-block text-white px-2">Fashion Brands</span>{" "}
-          <span className="block md:inline">With Business-Backed</span>{" "}
-          <span className="block md:inline underline decoration-red-500 decoration-2 underline-offset-4">
+          <span className="block md:inline text-3xl md:text-6xl">With Business-Backed</span>{" "}
+          <span className="block md:inline text-3xl md:text-6xl underline decoration-red-500 decoration-2 underline-offset-4">
             Meta Ads
           </span>
         </h1>

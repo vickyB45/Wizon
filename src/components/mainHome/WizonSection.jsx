@@ -12,7 +12,7 @@ const WizonSection = () => {
     >
       {/* Headline */}
       <div className="px-2 md:px-24">
-        <h1 className="md:text-5xl text-[46px] heading text-gray-800 font-[600] leading-13 md:leading-14">
+        <h1 className="md:text-5xl text-[40px] heading text-gray-800 font-[600] leading-11 md:leading-14">
           <span className="text-black underline decoration-dotted">Wizon Media</span>{" "}
           <span className="text-zinc-500">isn’t just an agency.</span>
           <br />

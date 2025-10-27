@@ -6,7 +6,7 @@ const GrowthSection = () => {
   return (
     <section className="relative py-8 bg-[url(/image/home1.jpg)] bg-cover bg-center px-3 h-full md:mt-10 overflow-hidden ">
       {/* Slanted Black Bar */}
-        <div className="absolute inset-0 z-0 bg-white/90"></div> 
+        <div className="absolute inset-0 z-0 bg-white/94"></div> 
 
       <motion.div
         initial={{ opacity: 0, y: -40 }}

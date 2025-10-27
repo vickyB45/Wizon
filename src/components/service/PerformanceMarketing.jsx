@@ -26,13 +26,13 @@ const PerformanceMarketing = () => {
         variants={fadeUp}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="text-5xl font-bold text text-center mb-10"
+        className="md:text-4xl text-[27px] md:leading-12 font-bold text text-center mb-10"
       >
-        <span className="md:bg-black md:text-white px-3 py-1">PERFORMANCE MARKETING</span>{" "}
-        <span className="text-blue-600">(META ADS)</span>
+        <span className="md:bg-black md:text-white md:px-3 whitespace-nowrap  py-1">PERFORMANCE MARKETING</span>{" "} <br />
+        <span className="text-blue-600 " >(META ADS)</span>
       </motion.h1>
 
-      <div className="grid md:grid-cols-2 text gap-5 max-w-5xl w-full z-10">
+      <div className="grid grid-cols-2 text md:gap-5 gap-1 max-w-5xl w-full z-10">
         {[
           "🤖 AI-BASED TARGETING",
           "📊 DATA-LED STRATEGY",
@@ -49,7 +49,7 @@ const PerformanceMarketing = () => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             transition={{ delay: i * 0.1 }}
-            className="bg-white border-2  border-gray-700 rounded-xl py-3 px-5 flex items-center justify-center text-xl md:text-2xl font-medium"
+            className="bg-white border-2 min-h-16 text-center md:text-start border-gray-700 rounded-xl md:py-3 md:px-5  px-2 flex items-center justify-center text-sm  md:text-2xl font-medium"
           >
             {item}
           </motion.div>

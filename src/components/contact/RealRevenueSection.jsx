@@ -43,7 +43,7 @@ const RealRevenueSection = () => {
         {/* Red-bordered words */}
         <motion.div
           variants={fadeUp}
-          className="flex flex-wrap justify-center gap-4 md:gap-24 mt-10"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-24 mt-10"
         >
           {["BRAND", "MARGINS", "AUDIENCE", "PRODUCTS"].map((word, i) => (
             <motion.span

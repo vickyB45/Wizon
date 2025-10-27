@@ -2,8 +2,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
 
 const steps = [
   { id: 1, title: "Business Deep–Dive", desc: "We audit your brand data, creatives, funnel & product–market fit." },
@@ -15,7 +16,7 @@ const steps = [
 
 const HowWeScale = () => {
   return (
-    <section className="max-w-6xl mx-auto py-16 px-6 overflow-hidden">
+    <section className="max-w-6xl mx-auto py-16 md:px-6 px-2 overflow-hidden">
       <motion.h2
         className="text-3xl md:text-5xl heading font-bold text-center mb-14"
         initial={{ opacity: 0, y: -20 }}
@@ -26,37 +27,53 @@ const HowWeScale = () => {
       </motion.h2>
 
       <div className="relative">
+
+        {/* Navigation Arrows */}
+        <div className="absolute flex  inset-0 pointer-events-none items-center justify-between px-6 z-20">
+          <button className="prev-btn pointer-events-auto bg-white text-black w-10 h-10 rounded-full shadow flex items-center justify-center hover:bg-black hover:text-white transition">
+            ❮
+          </button>
+          <button className="next-btn pointer-events-auto bg-white text-black w-10 h-10 rounded-full shadow flex items-center justify-center hover:bg-black hover:text-white transition">
+            ❯
+          </button>
+        </div>
+
         <Swiper
           slidesPerView={1}
           breakpoints={{
             640: { slidesPerView: 2, spaceBetween: 20 },
             768: { slidesPerView: 3, spaceBetween: 30 },
           }}
-          loop={true} // enables infinite loop
+          loop={true}
           autoplay={{
-            delay: 3000, // 3 seconds
-            disableOnInteraction: false, // keeps autoplay after manual swipe
+            delay: 3000,
+            disableOnInteraction: false,
           }}
-          modules={[Autoplay]} // include autoplay module
+          navigation={{
+            prevEl: ".prev-btn",
+            nextEl: ".next-btn",
+          }}
+          modules={[Autoplay, Navigation]}
           className="flex items-center"
         >
           {steps.map((step, index) => (
             <SwiperSlide key={step.id}>
-              <div className="flex flex-col text items-center text-center relative">
+              <div className="relative flex flex-col items-center text-center">
                 {index !== steps.length - 1 && (
-                  <div className="hidden md:block absolute top-9 left-1/2 w-full border-t-2 border-black -z-10"></div>
+                  <div className="hidden md:block absolute top-9 left-1/2 w-[200%] border-t-2 border-black -z-10"></div>
                 )}
-                <div className="w-18 h-18 rounded-full border-2 border-black flex items-center justify-center text-2xl text font-bold bg-white z-10">
+                <div className="w-18 h-18 rounded-full border-2 border-black flex items-center justify-center text-2xl font-bold bg-white z-10">
                   {step.id}
                 </div>
                 <h3 className="font-semibold text-3xl mt-4">{step.title}</h3>
-                <p className="  text-white  mt-2 inline-block leading-relaxed rounded-sm">
+                <p className="text-white mt-2 inline-block leading-relaxed rounded-sm">
                   <span className="bg-black px-3 py-1 leading-9">{step.desc}</span>
                 </p>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+
       </div>
     </section>
   );

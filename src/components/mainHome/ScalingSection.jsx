@@ -19,8 +19,8 @@ const ScalingSection = () => {
         className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left"
       >
         {/* Top Line — Scaling + Round icon on mobile */}
-        <div className="flex items-center justify-center md:justify-start gap-3">
-          <h1 className="text-black text-7xl sm:text-6xl md:text-[109px] font-semibold leading-[1.1] tracking-tight heading">
+        <div className="flex items-center justify-start  md:justify-start gap-7">
+          <h1 className="text-black text-7xl sm:text-6xl md:text-[109px] font-semibold  tracking-tight leading-0 md:leading-[5rem] heading">
             Scaling
           </h1>
 
@@ -29,7 +29,7 @@ const ScalingSection = () => {
             initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
             animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
-            className="relative w-[120px] h-[120px] sm:w-[90px] sm:h-[90px] md:hidden flex justify-center items-center"
+            className="relative w-[100px]  h-[100px] sm:w-[90px] sm:h-[90px] md:hidden flex justify-center items-center"
           >
             {/* Rotating Text */}
             <motion.div
@@ -66,14 +66,14 @@ const ScalingSection = () => {
         </div>
 
         {/* D2C Brands line */}
-        <h1 className="text-black text-7xl sm:text-6xl md:text-[109px] font-semibold tracking-tight heading">
+        <h1 className="text-black relative -mt-3 md:mt-0 text-7xl sm:text-6xl md:text-[109px] font-semibold tracking-tight heading">
           D2C Brands
         </h1>
 
         {/* Subtext */}
-        <p className="mt-6 text  text-start relative -left-3.5 text-2xl sm:text-2xl md:text-5xl font-normal text-black">
+        <p className="mt-2 text md:mr-0 mr-14  text-start relative  text-2xl sm:text-2xl md:text-5xl font-normal text-black">
           with{" "}
-          <span className= " text bg-black text-[#ccca1e] px-3 py-1 rounded-md">
+          <span className= " text bg-black font-bold text-[#ccca1e] px-3 py-1 rounded-md">
             No-Fluff Meta Ads
           </span>
         </p>

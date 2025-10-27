@@ -7,7 +7,7 @@ const GrowBrandSection = () => {
     <section className="text-center text pt-16 px-4 overflow-hidden">
       {/* Heading Animation */}
       <motion.h2
-        className="text-6xl md:text-[54px] tracking-tight font-bold text-gray-900"
+        className="text-6xl tracking-tight font-bold text-gray-900"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -15,9 +15,9 @@ const GrowBrandSection = () => {
       >
         Let’s{" "}
         <span className="text-black">
-          Grow Your{" "}
+          Grow  <br className="md:hiddne"/> Your{" "} <br className="md:hidden"/>
           <motion.span
-            className="border-4 px-3 inline-block border-red-500"
+            className="border-4 px-3  text-4xl md:text-6xl  inline-block border-red-500"
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "backOut" }}
@@ -26,9 +26,9 @@ const GrowBrandSection = () => {
             Brand
           </motion.span>
         </span>{" "}
-        —{" "}
+        -{" "}
         <motion.span
-          className="text-black relative inline-block"
+          className="text-black  text-4xl md:text-6xl  relative inline-block"
           initial={{ x: -50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
@@ -40,7 +40,7 @@ const GrowBrandSection = () => {
 
       {/* Paragraph Animation */}
       <motion.p
-        className="text-gray-700 text-[22px] text  md:text-2xl leading-9 mt-8 m:mt-6 max-w-4xl mx-auto"
+        className="text-gray-700 text-[22px] text  md:text-2xl leading-7 mt-8 m:mt-6 max-w-4xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
