@@ -11,11 +11,21 @@ const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')).render(
 
+
   <QueryClientProvider client={queryClient}>
-  <BrowserRouter>
-    <App />
-     <ToastContainer position="bottom-right" autoClose={5000} />
-  </BrowserRouter>,
+    <BrowserRouter>
+      <App />
+      <ToastContainer position="bottom-right" autoClose={5000} />
+    </BrowserRouter>,
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={true}
+      closeOnClick
+      pauseOnHover
+      theme="colored"
+    />
   </QueryClientProvider>
-  
+
 )

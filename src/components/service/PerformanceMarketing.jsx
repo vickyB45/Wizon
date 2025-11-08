@@ -26,7 +26,8 @@ const PerformanceMarketing = () => {
         variants={fadeUp}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="md:text-4xl text-[27px] md:leading-12 font-bold text text-center mb-10"
+        className="md:text-4xl text-[27px] md:leading-12
+         font-bold text text-center mb-10"
       >
         <span className="md:bg-black md:text-white md:px-3 whitespace-nowrap  py-1">PERFORMANCE MARKETING</span>{" "} <br />
         <span className="text-blue-600 " >(META ADS)</span>

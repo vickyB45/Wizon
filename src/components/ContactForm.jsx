@@ -43,7 +43,7 @@ const ContactForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formDataArray),
       });
-      if (!res.ok) throw new Error("Failed to send mail");
+      if (!res.ok) throw new Error("send mail");
       return res.json();
     },
   });
