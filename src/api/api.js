@@ -16,7 +16,7 @@ export const handleContactForm = async (formData) => {
     });
     return response.data;
   } catch (error) {
-    console.error("❌ Error sending contact form:", error);
+    console.error(" Error sending contact form:", error);
     throw error;
   }
 };

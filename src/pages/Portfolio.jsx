@@ -7,113 +7,131 @@ import ReelCard from "../components/portfolio/ReelCard";
 export const brandData = [
   {
     name: "Arush",
-    heading: "Scaled from ",
+    heading: "Scaled from",
     heading2: " ₹90K → ₹8L+",
     heading3: "in 45 Days",
-    description: "By identifying the perfect ",
+    description: "By identifying the perfect",
     description2: "Product–Market Fit.",
-    image:
-      "https://i.pinimg.com/736x/79/e7/b4/79e7b43087f01c932ae5eba9af3f5ad3.jpg1",
-    image2:
-      "https://i.pinimg.com/1200x/7f/b6/dd/7fb6ddf1d5c10da50f4e06310ab60d30.jpg",
+    metaImage: "/image/portfolio/Arush_Ads_Manager.jpeg",
+    shopifyImage:
+      "/image/portfolio/Arush_Shopify.jpeg",
   },
   {
     name: "Crook Store",
-    heading: "Scaled from ",
+    heading: "Scaled from",
     heading2: " ₹3L → ₹15L+",
     heading3: "in Just 3 Months",
-    description: "Achieved sustainable growth in ",
+    description: "Achieved sustainable growth in",
     description2: "a LOW AOV category - profitable.",
-    image: "https://yourcdn.com/images/arush-dashboard.png",
-    image2: "https://yourcdn.com/images/arush-dashboard.png",
+    metaImage: "/image/portfolio/Crook_Ads_Manager.jpeg",
+    shopifyImage: "/image/portfolio/Crook_Shopify.jpeg",
   },
   {
     name: "Liveology",
-    heading: "Scaled profitably ",
+    heading: "Scaled profitably",
     heading2: "Beyond ₹5L Monthly",
     heading3: "Sales",
     description: "Build consistent, sustainable growth",
     description2: "with full - funnel Meta strategy.",
-    image: "https://yourcdn.com/images/arush-dashboard.png",
-    image2: "https://yourcdn.com/images/arush-dashboard.png",
+    metaImage: "/image/portfolio/Liveology_Ads_Manager.jpeg",
+    shopifyImage: "/image/portfolio/Liveology_Ads_Manager.jpeg",
   },
 ];
 
 const adShowcaseData = [
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "CONFIDENCE STARTS",
-    heading2: "with comfort",
+    image: "/image/portfolio/ads/1.jpg",
+    heading1: "CTR:2.27% | ROAS:2.95X |",
+    heading2: "Revenue:9.4L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "STYLE MEETS",
-    heading2: "every occasion",
+    image: "/image/portfolio/ads/2.jpg",
+    heading1:  "CTR:3% | ROAS:2.7X |",
+    heading2: "Revenue:1.4L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "ELEVATE YOUR",
-    heading2: "daily look",
+    image: "/image/portfolio/ads/3.png",
+     heading1:  "CTR:3.4% | ROAS:2.9X |",
+    heading2: "Revenue:1.3L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "BREEZY WEAR",
-    heading2: "for summer vibes",
+    image: "/image/portfolio/ads/4.png",
+     heading1:  "CTR:1% | ROAS:4.1X |",
+    heading2: "Revenue:7.2L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "CONFIDENCE STARTS",
-    heading2: "with comfort",
+    image: "/image/portfolio/ads/5.jpeg",
+     heading1:  "CTR:1% | ROAS:4X |",
+    heading2: "Revenue:6.3L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "STYLE MEETS",
-    heading2: "every occasion",
+    image: "/image/portfolio/ads/6.png",
+     heading1:  "CTR:1.2% | ROAS:3X |",
+    heading2: "Revenue:2.1L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "ELEVATE YOUR",
-    heading2: "daily look",
+    image: "/image/portfolio/ads/7.png",
+      heading1:  "CTR:1.3% | ROAS:3.4X |",
+    heading2: "Revenue:1.5L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "BREEZY WEAR",
-    heading2: "for summer vibes",
+    image: "/image/portfolio/ads/8.png",
+     heading1:  "CTR:1.4% | ROAS:2X |",
+    heading2: "Revenue:4.2L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "CONFIDENCE STARTS",
-    heading2: "with comfort",
+    image: "/image/portfolio/ads/9.png",
+     heading1:  "CTR:1.2% | ROAS:1.8X |",
+    heading2: "Revenue:4L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "STYLE MEETS",
-    heading2: "every occasion",
+    image: "/image/portfolio/ads/11.jpeg",
+     heading1:  "CTR:2.5% | ROAS:2.4X |",
+    heading2: "Revenue:3.5L+",
+  },
+   {
+    image: "/image/portfolio/ads/10.png",
+     heading1:  "CTR:1.7% | ROAS:1.9X |",
+    heading2: "Revenue:3.2L+",
+  },
+  
+  {
+    image: "/image/portfolio/ads/TJC_1.png",
+      heading1:  "CTR:3.8% | ROAS:2.5X |",
+    heading2: "Revenue:5.1L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "ELEVATE YOUR",
-    heading2: "daily look",
+    
+    image: "/image/portfolio/ads/TJC_2.png",
+     heading1:  "CTR:3% | ROAS:3.6X |",
+    heading2: "Revenue:2.7L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "BREEZY WEAR",
-    heading2: "for summer vibes",
+    image: "/image/portfolio/ads/TJC_3.png",
+     heading1:  "CTR:3.1% | ROAS:3.1X |",
+    heading2: "Revenue:1L+",
+  },
+
+ 
+  {
+    image: "/image/portfolio/ads/12.jpeg",
+   heading1:  "CTR:2.1% | ROAS:4X |",
+    heading2: "Revenue:11L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "STYLE MEETS",
-    heading2: "every occasion",
+    image: "/image/portfolio/ads/13.png",
+      heading1:  "CTR:2.1% | ROAS:5X |",
+    heading2: "Revenue:3L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "ELEVATE YOUR",
-    heading2: "daily look",
+    image: "/image/portfolio/ads/14.png",
+    heading1:  "CTR:3.9% | ROAS:4.1X |",
+    heading2: "Revenue:1.3L+",
   },
   {
-    image: "https://i.pinimg.com/736x/0e/38/5b/0e385b662f1b40084d151d7fb51a46a6.jpg",
-    heading1: "BREEZY WEAR",
-    heading2: "for summer vibes",
+    image: "/image/portfolio/ads/15.png",
+     heading1:  "CTR:5.6% | ROAS:3.7X |",
+    heading2: "Revenue:1.1L+",
   },
 ];
 
@@ -233,9 +251,9 @@ const Portfolio = () => {
           variants={fadeUp}
           className="mt-6 max-w-[1150px] mx-auto text-center grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
         >
-          <ReelCard title="CTR: 2% | ROAS: 3.5X | Revenue: 1.1L +" />
-          <ReelCard title="CTR: 1.1% | ROAS: 2.1X | Revenue: 2.4L +" />
-          <ReelCard title="CTR: 2% | ROAS: 2.5X | Revenue: 1L +" />
+          <ReelCard title="CTR: 2% | ROAS: 3.5X | Revenue: 1.1L +" src="/video/portfolio/1.mp4" />
+          <ReelCard title="CTR: 1.1% | ROAS: 2.1X | Revenue: 2.4L +" src="/video/portfolio/2.mp4" />
+          <ReelCard title="CTR: 2% | ROAS: 2.5X | Revenue: 1L +" src="/video/portfolio/3.mp4"/>
         </motion.div>
       </motion.div>
 
