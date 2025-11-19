@@ -15,21 +15,23 @@ const fadeUp = {
 };
 
 const productsRow1 = [
-  "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1537832816519-689ad163238b?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=800&q=80",
+  "/image/portfolio/ads/1.jpg",
+  "/image/portfolio/ads/2.jpg",
+  "/image/portfolio/ads/3.png",
+  "/image/portfolio/ads/4.png",
+  "/image/portfolio/ads/5.jpeg",
+  "/image/portfolio/ads/6.png",
+  "/image/portfolio/ads/7.png",
 ];
 
 const productsRow2 = [
-  "https://images.unsplash.com/photo-1544006659-f0b21884ce1d?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1537832816519-689ad163238b?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=800&q=80",
+   "/image/portfolio/ads/8.png",
+  "/image/portfolio/ads/9.png",
+  "/image/portfolio/ads/10.png",
+  "/image/portfolio/ads/11.jpeg",
+  "/image/portfolio/ads/12.jpeg",
+  "/image/portfolio/ads/13.png",
+  "/image/portfolio/ads/14.png",
 ];
 
 // merge all images for lightbox slider
