@@ -21,7 +21,7 @@ export default function WizonTeamSection() {
         >
           <div className="w-56 h-56 sm:w-84 sm:h-84 select-none overflow-hidden bg-white border border-black rounded-xl flex items-center justify-center text-sm sm:text-2xl font-medium heading">
             <img src="image/about/1.png"
-              className=" grayscale hover:grayscale-0 transition duration-150"
+              className=" grayscale active:grayscale-0 md:hover:grayscale-0 transition duration-150"
               alt="Dhiman" />
           </div>
           <motion.h2
@@ -65,7 +65,7 @@ export default function WizonTeamSection() {
           <div className="w-56 h-56 sm:w-84 sm:h-84 select-none overflow-hidden  bg-white border border-black rounded-xl flex items-center justify-center text-sm sm:text-2xl font-medium heading">
             <img
               src="image/about/2.png"
-              className=" grayscale hover:grayscale-0 transition duration-150"
+              className=" grayscale active:grayscale-0 md:hover:grayscale-0  transition duration-150"
               alt="Dhiman"
             />
           </div>
