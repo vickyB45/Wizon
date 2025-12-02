@@ -2,6 +2,23 @@ import React from "react";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 
+const image = [
+  "/image/home/1.jpg",
+  "/image/home/2.jpg",
+  "/image/home/3.png",
+  "/image/home/4.png",
+  "/image/home/5.jpeg",
+  "/image/home/6.png",
+  "/image/home/7.png",
+  "/image/home/8.png",
+  "/image/home/9.png",
+  "/image/home/10.png",
+  "/image/home/11.png",
+  "/image/home/12.png",
+  "/image/home/13.png",
+  "/image/home/14.webp",
+];
+
 const WizonSection = () => {
   return (
     <motion.section
@@ -40,12 +57,12 @@ const WizonSection = () => {
           loop={0}
           className="flex items-center"
         >
-          {Array.from({ length: 30 }).map((_, i) => (
+          {image.map((src, i) => (
             <img
               key={i}
-              className="h-20 object-contain"
-              src="/image/homeBanner.png"
-              alt=""
+              className="h-10 object-contain mx-6"
+              src={src}
+              alt="brand logo"
             />
           ))}
         </Marquee>

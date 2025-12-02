@@ -5,37 +5,50 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, FreeMode } from "swiper/modules";
 
+const images = [
+  "/image/portfolio/Arush_Ads_Manager.jpeg",
+  "/image/portfolio/Arush_Shopify.jpeg",
+  "/image/portfolio/Crook_Ads_Manager.jpeg",
+  "/image/portfolio/Crook_Shopify.jpeg"
+];
+
 const BlueBoxSlider = () => {
   return (
-    <div className="relative w-full pb-14 overflow-hidden">
+    <div className="relative w-full pb-14">
       {/* Background grid */}
       <div className="absolute inset-0 bg-[url('/grid-bg.png')] bg-cover bg-center opacity-20 pointer-events-none"></div>
 
-      <Swiper
-        modules={[Autoplay, Pagination, FreeMode]}
-        loop={true}
-        freeMode={true} // smooth continuous scroll
-        autoplay={{
-          delay: 1, // almost no delay
-          disableOnInteraction: false,
-        }}
-        speed={4000} // higher speed for smoothness
-        slidesPerView={1.2}
-        spaceBetween={10}
-        breakpoints={{
-          640: { slidesPerView: 2, spaceBetween: 20 },
-          1024: { slidesPerView: 3, spaceBetween: 30 },
-        }}
-        className="max-w-7xl mx-auto"
-      >
-        {[1, 2, 3, 4].map((i) => (
-          <SwiperSlide key={i}>
-            <div className="bg-blue-600 active:cursor-grabbing cursor-grab border-2 border-black h-64 flex items-center justify-center text-white text-2xl font-bold">
-              Box {i}
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {/* Swiper container with visible overflow */}
+      <div className="relative max-w-7xl mx-auto overflow-visible">
+        <Swiper
+          modules={[Autoplay, Pagination, FreeMode]}
+          loop={true}
+          freeMode={true}
+          autoplay={{
+            delay: 1,
+            disableOnInteraction: false,
+          }}
+          speed={4000}
+          slidesPerView={1.2}
+          spaceBetween={14}
+          breakpoints={{
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 30 },
+          }}
+        >
+          {images.map((img, i) => (
+            <SwiperSlide key={i}>
+              <div className="cursor-grab active:cursor-grabbing border-2 border-black h-54 rounded-xl overflow-hidden">
+                <img
+                  src={img}
+                  alt={`portfolio-${i}`}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
       {/* Custom Pagination */}
       <div className="custom-pagination flex justify-center gap-1.5 mt-6"></div>

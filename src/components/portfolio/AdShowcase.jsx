@@ -14,16 +14,22 @@ const AdShowcase = ({ data, onClick }) => {
       whileInView="show"
       viewport={{ once: true }}
       className="relative w-full max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-3xl mx-auto border-2 bg-white rounded-2xl overflow-hidden shadow-sm cursor-pointer"
-      onClick={onClick} // triggers Portfolio's Lightbox
+      onClick={onClick}
     >
       {/* Image */}
-      <div className="relative rounded-xl border-2 w-full h-64 sm:h-72 md:h-82 overflow-hidden">
+      <div className="relative rounded-[14px] border-2 w-full bg-white overflow-hidden">
         <img
           src={data.image}
           alt="Ad Image"
-          className="w-full h-full object-cover"
+          className="
+            w-full 
+            h-auto 
+            md:h-84
+            object-contain 
+            bg-white 
+            rounded-xl
+          "
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/15 to-transparent" />
       </div>
 
       {/* Metrics */}

@@ -86,7 +86,7 @@ const DashboardCard = ({ brands }) => {
           </div>
         </div>
 
-        {/* Right Image */}
+        {/* Right Image (Fixed for Mobile Accuracy) */}
         <div className="md:w-2/3 w-full border-4 rounded-xl shadow-inner relative z-10 overflow-hidden">
           <img
             src={
@@ -95,7 +95,15 @@ const DashboardCard = ({ brands }) => {
                 : selectedBrand.shopifyImage
             }
             alt={`${selectedBrand.name} Dashboard`}
-            className="w-full h-[220px] md:h-[300px] object-cover rounded-lg transition-all duration-300"
+            className="
+              w-full 
+              h-[200px] md:h-[300px] 
+              object-contain md:object-cover 
+              bg-white 
+              rounded-lg 
+              transition-all 
+              duration-300
+            "
           />
         </div>
       </div>

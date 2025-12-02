@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Volume2, VolumeX } from "lucide-react"; // ✅ Lucide Icons
+import { Volume2, VolumeX } from "lucide-react";
 
 const videos = [
   { id: 1, src: "/video/portfolio/1.mp4" },
@@ -16,11 +16,10 @@ const fadeUp = {
 };
 
 export default function UGCPortfolio() {
-  // Default: sab muted
   const [activeVideo, setActiveVideo] = useState(null);
 
   const toggleMute = (id) => {
-    setActiveVideo((prev) => (prev === id ? null : id)); // same toggle logic
+    setActiveVideo((prev) => (prev === id ? null : id));
   };
 
   return (
@@ -39,38 +38,68 @@ export default function UGCPortfolio() {
           UGC PORTFOLIO
         </motion.h2>
 
-        {/* Videos Grid */}
-        <div className="flex flex-wrap justify-center gap-6 mt-6">
-
+        {/* DESKTOP GRID (unchanged) */}
+        <div className="hidden sm:flex flex-wrap justify-center gap-6 mt-6">
           {videos.map((item) => {
             const isActive = activeVideo === item.id;
 
             return (
               <div
                 key={item.id}
-                className="relative group cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 w-full sm:w-[300px]"
+                className="relative group cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 w-[300px]"
               >
                 <video
                   src={item.src}
                   autoPlay
                   loop
                   playsInline
-                  muted={!isActive}   // ⬅️ Only active video unmuted
-                  className="w-full h-full object-cover object-center"
+                  muted={!isActive}
+                  className="w-full h-full object-cover"
                 />
 
                 {/* Mute/Unmute Button */}
                 <button
                   onClick={() => toggleMute(item.id)}
-                  className="absolute bottom-3 right-3 bg-black/60 text-white p-2 rounded-full backdrop-blur-sm hover:bg-black/80 transition flex items-center justify-center"
+                  className="absolute bottom-3 right-3 bg-black/60 text-white p-2 rounded-full"
                 >
                   {isActive ? <Volume2 size={18} /> : <VolumeX size={18} />}
                 </button>
               </div>
             );
           })}
-
         </div>
+
+        {/* MOBILE COLUMN VIEW */}
+        <div className="sm:hidden flex flex-col gap-6 mt-6">
+          {videos.map((item) => {
+            const isActive = activeVideo === item.id;
+
+            return (
+              <div
+                key={item.id}
+                className="relative w-full rounded-xl overflow-hidden shadow-md"
+              >
+                <video
+                  src={item.src}
+                  autoPlay
+                  loop
+                  playsInline
+                  muted={!isActive}
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Mute/Unmute Button */}
+                <button
+                  onClick={() => toggleMute(item.id)}
+                  className="absolute bottom-3 right-3 bg-black/60 text-white p-2 rounded-full"
+                >
+                  {isActive ? <Volume2 size={18} /> : <VolumeX size={18} />}
+                </button>
+              </div>
+            );
+          })}
+        </div>
+
       </div>
     </section>
   );

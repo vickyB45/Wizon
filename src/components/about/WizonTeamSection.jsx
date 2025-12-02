@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 export default function WizonTeamSection() {
   return (
@@ -19,8 +19,10 @@ export default function WizonTeamSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="flex flex-col items-center text-center md:w-1/2 w-full"
         >
-          <div className="w-56 h-56 sm:w-84 sm:h-84 select-none p-4 bg-white border border-black rounded-xl flex items-center justify-center text-sm sm:text-2xl font-medium heading">
-            PHOTO WILL BE IN BLACK AND WHITE
+          <div className="w-56 h-56 sm:w-84 sm:h-84 select-none overflow-hidden bg-white border border-black rounded-xl flex items-center justify-center text-sm sm:text-2xl font-medium heading">
+            <img src="image/about/1.png"
+              className=" grayscale hover:grayscale-0 transition duration-150"
+              alt="Dhiman" />
           </div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -47,7 +49,8 @@ export default function WizonTeamSection() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-gray-800 max-w-xs text-base sm:text-[18px] text"
           >
-            The strategist behind every profitable ad account. Leads data, scaling plans, and client strategy.
+            The strategist behind every profitable ad account. Leads data,
+            scaling plans, and client strategy.
           </motion.p>
         </motion.div>
 
@@ -59,8 +62,12 @@ export default function WizonTeamSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="flex flex-col items-center text-center md:w-1/2 w-full"
         >
-          <div className="w-56 h-56 sm:w-84 sm:h-84 select-none p-4 bg-white border border-black rounded-xl flex items-center justify-center text-sm sm:text-2xl font-medium heading">
-            PHOTO WILL BE IN BLACK AND WHITE
+          <div className="w-56 h-56 sm:w-84 sm:h-84 select-none overflow-hidden  bg-white border border-black rounded-xl flex items-center justify-center text-sm sm:text-2xl font-medium heading">
+            <img
+              src="image/about/2.png"
+              className=" grayscale hover:grayscale-0 transition duration-150"
+              alt="Dhiman"
+            />
           </div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -87,7 +94,8 @@ export default function WizonTeamSection() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-gray-800 max-w-xs text-base sm:text-[18px] text"
           >
-            The execution backbone. Handles UGC, operations, and ensures top-notch creative delivery and systems.
+            The execution backbone. Handles UGC, operations, and ensures
+            top-notch creative delivery and systems.
           </motion.p>
         </motion.div>
       </div>
@@ -101,9 +109,10 @@ export default function WizonTeamSection() {
         className="border-3 border-green-400 p-3 sm:p-3 rounded-md text-center max-w-3xl mt-16 mx-4"
       >
         <p className="font-bold text-sm sm:text-[24px] text-gray-800 text">
-          Together, we run Wizon Media lean and hands-on — working only with clients we believe we can scale.
+          Together, we run Wizon Media lean and hands-on — working only with
+          clients we believe we can scale.
         </p>
       </motion.div>
     </div>
-  )
+  );
 }

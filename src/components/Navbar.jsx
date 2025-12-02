@@ -54,7 +54,7 @@ const Navbar = () => {
               <Link
                 to={item.path}
                 key={i}
-                className={`cursor-pointer px-3 heading transition-all duration-200 active:scale-[.94] ${
+                className={`cursor-pointer px-3 text transition-all duration-200 active:scale-[.94] ${
                   location.pathname === item.path
                     ? "border-2 border-[#00c951]"
                     : "border-2 border-transparent"

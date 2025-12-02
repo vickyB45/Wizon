@@ -73,7 +73,7 @@ const ScalingSection = () => {
         {/* Subtext */}
         <p className="mt-2 text md:mr-0 mr-14  text-start relative  text-2xl sm:text-2xl md:text-5xl font-normal text-black">
           with{" "}
-          <span className= " text bg-black font-bold text-[#ccca1e] px-3 py-1 rounded-md">
+          <span className= " text bg-black font-bold text-[#fffd2f] px-3 py-1 rounded-md">
             No-Fluff Meta Ads
           </span>
         </p>

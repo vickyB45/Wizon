@@ -1,107 +1,165 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
-
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 },
 };
-  const brands = [
-    {
-      avatar: "https://i.pinimg.com/736x/f7/63/03/f7630358b6c2e058381a34be8d2736d8.jpg",
-      companyName: "ARUSH CLOTHING",
-      body: "We grew from ₹3.5L to ₹8.2L/month in under 60 days with a stable 2.8X ROAS. Wizon fixed our offer, positioning, and scaling strategy — not just ads. Now we’re growing profitably, month after month.",
-      founderName: "Roshani Saini, Founder",
-      websiteUrl: "https://arush.co.in",
-    },
-    {
-      avatar: "https://i.pinimg.com/736x/a3/10/7c/a3107cc866182b13ef2777bbfae80f64.jpg",
-      companyName: "CROOK STORE",
-      body: "As a Gen Z accessories brand, no one truly got our vibe — until Wizon. In just 45 days, we scaled from ₹1.2L to ₹6.5L/month, cut CAC by 40%, and crossed ₹27L+ in total revenue. The ads finally felt like us.",
-      founderName: "Yatin Batra, Founder",
-      websiteUrl: "https://crookstore.in",
-    },
-    {
-      avatar: "https://i.pinimg.com/1200x/5d/2f/f9/5d2ff9856572329454664ab469c020c0.jpg",
-      companyName: "FLEXWEAR",
-      body: "Before Wizon, we were stuck at ₹4L/month. After refining our funnel and creative direction, we hit ₹10L+ within 70 days with consistent ROAS and organic traction.",
-      founderName: "Nikhil Sharma, Founder",
-      websiteUrl: "https://flexwear.in",
-    },
-    {
-      avatar: "https://i.pinimg.com/736x/fa/01/8a/fa018ad9db226544b0bdaf9a74507da9.jpg",
-      companyName: "GLAMNEST BEAUTY",
-      body: "Our skincare campaigns were losing steam. Wizon restructured our offer and visuals — within 30 days, we achieved a 3.2X ROAS and doubled repeat customers.",
-      founderName: "Ayesha Khan, Founder",
-      websiteUrl: "https://glamnest.in",
-    },
-    {
-      avatar: "https://i.pinimg.com/736x/d3/9f/39/d39f399aa70967afb7f48ab29fcfd515.jpg",
-      companyName: "URBANFIT",
-      body: "From ₹6L to ₹11L/month — Wizon helped us find clarity in our brand message and optimize our ad funnel. We now scale predictably every month.",
-      founderName: "Ravi Mehta, Founder",
-      websiteUrl: "https://urbanfit.in",
-    },
-    {
-      avatar: "https://i.pinimg.com/1200x/01/bc/28/01bc28dec7e8e02548fd54514ceda195.jpg",
-      companyName: "LUXORA JEWELS",
-      body: "Our high-ticket jewellery brand struggled online. After working with Wizon, we went from ₹2L to ₹7.8L/month in just 50 days, while maintaining premium positioning.",
-      founderName: "Neha Kapoor, Founder",
-      websiteUrl: "https://luxorajewels.in",
-    },
-  ];
 
+const brands = [
+  {
+   
+    companyName: "— Crook Store (Streetwear & Accessories)",
+    body: `⭐⭐⭐⭐⭐ 
+“Wizon took us from scratch to consistent 5–6 lakhs/month in sales.”  
+“We started with absolutely no structure — no proper website, no funnels, nothing.  
+Wizon built everything from 0: Meta Ads, funnels, creatives, landing pages.  
+Within months, we hit a steady ₹5–6L/month in sales.  
+Their Gen-Z creative direction and Meta testing process is unmatched.”`,
+    founderName: "Crook Store",
+    websiteUrl: "#",
+  },
+
+  {
+  
+    companyName: "— Arush Clothing",
+    body: `⭐⭐⭐⭐⭐
+“We found our PMF and scaled beyond lakhs within weeks.”  
+“We were struggling to find product–market fit.  
+Wizon completely rebuilt our ads, creatives and testing system.  
+That single change helped us find our PMF and unlock real scale.  
+We grew from inconsistent revenue to solid multi-lakh months quickly.  
+They genuinely understand fashion buying behaviour.”`,
+    founderName: "Founder, Arush Clothing",
+    websiteUrl: "#",
+  },
+
+  {
+
+    companyName: "— Jaipur Clothing",
+    body: `⭐⭐⭐⭐⭐ 
+“From brand name → website → Meta Ads — Wizon built Jaipur Clothing from the ground up.”  
+“This brand literally started on a blank page.  
+Wizon built our brand name, website, funnels and full Meta Ads setup.  
+Even with extremely thin stock, they pushed the brand to profitability.  
+Their premium creative approach helped attract 25–55 working women.”`,
+    founderName: "Founder, Jaipur Clothing",
+    websiteUrl: "#",
+  },
+
+  {
+  
+    companyName: "— Liveology (Premium Towels)",
+    body: `⭐⭐⭐⭐⭐
+“Liveology finally became profitable after months of loss.”  
+“We were running ads but ROAS was always unprofitable.  
+Wizon rebuilt our entire funnel, redesigned creatives, and fixed audience strategy.  
+Within a few weeks, we finally saw stable, profitable ROAS for the first time in months.  
+Their UGC direction was the best we've seen.”`,
+    founderName: "Liveology",
+    websiteUrl: "#",
+  },
+
+  {
+  
+    companyName: "— Chiran Tea (Matcha Supplier)",
+    body: `⭐⭐⭐⭐⭐
+“We were searching for the right agency — Wizon finally gave us real online growth.”  
+“For years, we tried scaling our online channel but nothing worked.  
+Wizon took over Meta Ads + SEO, built high-ranking blogs, fixed funnels,  
+and scaled our bestseller Matcha packs.  
+We finally have a long-term growth partner.”`,
+    founderName: "Chiran Tea",
+    websiteUrl: "#",
+  },
+
+  {
+  
+    companyName: "— Chiclo (Women’s Co-ords)",
+    body: `⭐⭐⭐⭐⭐
+“The best Meta Ads team if you're starting from scratch.”  
+“Our brand had no structure.  
+Wizon built our foundation — TOFU angles, refined creatives,  
+and consistent Meta Ads revenue.  
+Today we have stable, profitable growth because they understood  
+our premium audience deeply.”`,
+    founderName: "Chiclo",
+    websiteUrl: "#",
+  },
+];
 
 export default function AboutUsClientSay() {
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
+  const toggleExpand = (i) => {
+    setExpandedIndex(expandedIndex === i ? null : i);
+  };
+
   return (
-    <section className="">
+    <section>
       <div className="max-w-7xl mx-auto">
-        
-      <h2 className="text-3xl md:text-4xl heading font-bold text-center mb-12  tracking-wide">
-        What Our Client Say {" "}
-        <span className="inline-block border-3 border-red-600">
-           About Us
-        </span>{" "}
-      </h2>
-       <div className="max-w-[1100px] mx-auto px-4 pb-10">
-              <Swiper
-                modules={[Autoplay]}
-                autoplay={{ delay: 1500, disableOnInteraction: false }}
-                breakpoints={{
-                  0: { slidesPerView: 1, spaceBetween: 16 },
-                  640: { slidesPerView: 2, spaceBetween: 24 },
-                  1024: { slidesPerView: 3, spaceBetween: 32 },
-                }}
-                loop={true}
-              >
-                {brands.map((brand, i) => (
-                  <SwiperSlide key={i}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 40 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                      viewport={{ once: true, amount: 0.3 }}
-                      className="bg-black text text-white rounded p-6 cursor-grab active:cursor-grabbing min-h-[230px] flex flex-col justify-between"
-                    >
-                      <div>
-                        <div className="flex items-center gap-3 mb-4">
-                          <img
-                            src={brand.avatar}
-                            alt={brand.companyName}
-                            className="w-10 h-10 object-contain rounded-full"
-                          />
-                          <h3 className=" font-[600]">{brand.companyName}</h3>
-                        </div>
-                        <p className="text-white text-sm leading-4">
-                          {brand.body}
-                        </p>
+        <h2 className="text-3xl md:text-4xl heading font-bold text-center mb-12 tracking-wide">
+          What Our Client Say{" "}
+          <span className="inline-block border-3 border-red-600">About Us</span>
+        </h2>
+
+        <div className="max-w-[1100px] mx-auto px-4 pb-10">
+          <Swiper
+            modules={[Autoplay]}
+            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            breakpoints={{
+              0: { slidesPerView: 1, spaceBetween: 16 },
+              640: { slidesPerView: 2, spaceBetween: 24 },
+              1024: { slidesPerView: 3, spaceBetween: 32 },
+            }}
+            loop={true}
+          >
+            {brands.map((brand, i) => {
+              const isExpanded = expandedIndex === i;
+              const text = brand.body;
+
+              const shortText =
+                text.length > 60 ? text.slice(0, 60) + "..." : text;
+
+              return (
+                <SwiperSlide key={i}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    className="bg-black text-white rounded p-6 cursor-grab active:cursor-grabbing min-h-[200px] flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                       
+                        <h3 className="font-[600]">{brand.companyName}</h3>
                       </div>
-                      <div className=" text-sm  ">
-                       <div style={{ boxShadow: "4px 4px 0 #fff207" }} className="bg-white text-black inline-block mt-4 leading-4 py-1 px-4"> 
+
+                      {/* TEXT WITH SLICE + SHOW MORE */}
+                      <p className="text-sm leading-4 whitespace-pre-line">
+                        {isExpanded ? text : shortText}
+
+                        {text.length > 60 && (
+                          <button
+                            className="ml-2 underline text-yellow-300 text-xs"
+                            onClick={() => toggleExpand(i)}
+                          >
+                            {isExpanded ? "Show less" : "Show more"}
+                          </button>
+                        )}
+                      </p>
+                    </div>
+
+                    <div className="text-sm">
+                      <div
+                        style={{ boxShadow: "4px 4px 0 #fff207" }}
+                        className="bg-white text-black inline-block mt-4 leading-4 py-1 px-4"
+                      >
                         <p className="font-semibold">-{brand.founderName}</p>
                         <a
                           href={brand.websiteUrl}
@@ -109,16 +167,17 @@ export default function AboutUsClientSay() {
                           rel="noopener noreferrer"
                           className="text-blue-400 underline"
                         >
-                          website: {brand.websiteUrl.replace("https://", "")}
+                          website:
+                          {brand.websiteUrl.replace("https://", "")}
                         </a>
-                        </div>
                       </div>
-                    </motion.div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-
+                    </div>
+                  </motion.div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
       </div>
     </section>
   );

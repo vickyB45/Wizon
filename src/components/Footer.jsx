@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <>
       <div className="max-w-6xl mt-10 mx-auto flex flex-col md:flex-row gap-8 md:gap-6 w-full items-start px-4 sm:px-6">
-        
+
         {/* Logo */}
         <div className="text-6xl flex justify-center items-center sm:text-7xl md:text-8xl logo font-bold tracking-wide md:w-[35%] w-full text-center md:text-left">
           <img className="w-58" src="/logo.png" alt="logo" />
@@ -45,8 +45,13 @@ const Footer = () => {
           </h2>
 
           <div className="flex justify-center md:justify-start gap-4 mt-4">
-            <FaInstagram className="cursor-pointer hover:scale-110 transition-transform" size={25} />
-            <FaLinkedin className="cursor-pointer hover:scale-110 transition-transform" size={25} />
+            <a href=" https://www.instagram.com/wizonmedia/" target="_blank">
+              <FaInstagram className="cursor-pointer hover:scale-110 transition-transform" size={25} />
+            </a>
+            <a href="https://www.linkedin.com/company/wizonmedia/">
+              <FaLinkedin className="cursor-pointer hover:scale-110 transition-transform" size={25} />
+
+            </a>
           </div>
         </div>
 
@@ -58,7 +63,7 @@ const Footer = () => {
 
       {/* ✅ Floating WhatsApp Button (Fixed Right-Bottom) */}
       <a
-        href="https://wa.me/919389897294"
+        href="https://wa.me/919289024230"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded-full shadow-xl hover:scale-107 transition-transform z-50"
