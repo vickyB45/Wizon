@@ -2,8 +2,9 @@ import axios from "axios";
 
 // ✅ Backend Base URL
 const axiosBaseUrl = axios.create({
-    baseURL:"https://wizon-backend.vercel.app",
-
+  
+  // baseURL:"https://wizon-backend.vercel.app",
+  baseURL:"http://localhost:5000",
 }); 
 // ✅ Contact form API call
 export const handleContactForm = async (formData) => {
