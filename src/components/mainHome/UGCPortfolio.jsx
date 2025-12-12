@@ -38,7 +38,7 @@ export default function UGCPortfolio() {
           UGC PORTFOLIO
         </motion.h2>
 
-        {/* DESKTOP GRID (unchanged) */}
+        {/* DESKTOP GRID */}
         <div className="hidden sm:flex flex-wrap justify-center gap-6 mt-6">
           {videos.map((item) => {
             const isActive = activeVideo === item.id;
@@ -69,15 +69,15 @@ export default function UGCPortfolio() {
           })}
         </div>
 
-        {/* MOBILE COLUMN VIEW */}
-        <div className="sm:hidden flex flex-col gap-6 mt-6">
+        {/* MOBILE ROW SLIDER */}
+        <div className="sm:hidden flex gap-4 mt-6 overflow-x-auto pb-4 scrollbar-hide">
           {videos.map((item) => {
             const isActive = activeVideo === item.id;
 
             return (
               <div
                 key={item.id}
-                className="relative w-full rounded-xl overflow-hidden shadow-md"
+                className="relative min-w-[260px] rounded-xl overflow-hidden shadow-md"
               >
                 <video
                   src={item.src}

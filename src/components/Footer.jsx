@@ -28,15 +28,20 @@ const Footer = () => {
         </div>
 
         {/* Quick Links */}
-        <div className="text md:w-[22%] w-full text-center md:text-left">
-          <h2 className="heading font-bold mb-2 text-lg sm:text-xl">QUICK LINKS</h2>
-          <ul className="text-base sm:text-lg">
-            <li><Link to="/about" className="hover:underline">About</Link></li>
-            <li><Link to="/service" className="hover:underline">Service</Link></li>
-            <li><Link to="/profile" className="hover:underline">Portfolio</Link></li>
-            <li><Link to="/contact" className="hover:underline">Contact Us</Link></li>
-          </ul>
-        </div>
+       <div className="text md:w-[22%] w-full text-center md:text-left">
+  <h2 className="heading font-bold mb-2 text-lg text-center sm:text-xl">QUICK LINKS</h2>
+
+  <ul className="text-base sm:text-lg grid md:grid-cols-2 gap-x-2">
+    <li><Link to="/about" className="hover:underline">About</Link></li>
+    <li><Link to="/service" className="hover:underline">Service</Link></li>
+    <li><Link to="/portfolio" className="hover:underline">Portfolio</Link></li>
+    <li><Link to="/contact" className="hover:underline">Contact Us</Link></li>
+    <li><Link to="/blog" className="hover:underline">Blog</Link></li>
+    <li><Link to="/landing" className="hover:underline">Landing</Link></li>
+    <li><Link to="/admin" className="hover:underline">Admin</Link></li>
+  </ul>
+</div>
+
 
         {/* Social */}
         <div className="heading md:w-[22%] w-full text-center md:text-left">

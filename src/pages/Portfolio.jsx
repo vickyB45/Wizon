@@ -6,6 +6,8 @@ import AdShowcase from "../components/portfolio/AdShowcase";
 import ReelCard from "../components/portfolio/ReelCard";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import { Link } from "react-router-dom";
+import { Volume2, VolumeX } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -69,11 +71,16 @@ export const adShowcaseData = [
 const Portfolio = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const slides = adShowcaseData.map((ad) => ({ src: ad.image }));
+
+  const [activeVideo, setActiveVideo] = useState(null);
+  const toggleMute = (id) => {
+    setActiveVideo((prev) => (prev === id ? null : id));
+  };
 
   return (
     <section className="relative w-full overflow-hidden md:py-20 px-6 md:px-12">
+
       {/* HEADER SECTION */}
       <motion.div
         initial="hidden"
@@ -95,23 +102,6 @@ const Portfolio = () => {
             </span>{" "}
             That <br className="hidden md:block" /> Speak for Themselves
           </motion.h1>
-
-          <motion.p
-            variants={fadeUp}
-            className="mt-4 md:mt-6 text-sm md:text-xl text-gray-800 leading-relaxed"
-          >
-            <span className="bg-black text-white px-1">
-              Here’s what our clients’ real dashboards looked like
-            </span>{" "}
-            <br />
-            <span className="bg-black text-white px-1">
-              inside Shopify and Meta Ads — backed by data,
-            </span>{" "}
-            <br />
-            <span className="bg-black text-white px-1">
-              not <span className="line-through decoration-red-500 decoration-2">promises</span>.
-            </span>
-          </motion.p>
         </div>
       </motion.div>
 
@@ -120,7 +110,7 @@ const Portfolio = () => {
         <DashboardCard brands={brandData} />
       </div>
 
-      {/* ADS SECTION */}
+      {/* DESKTOP ADS GRID (UNCHANGED) */}
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -131,7 +121,10 @@ const Portfolio = () => {
           The Ads Behind the <span className="border-b-4 ">Number</span>
         </motion.h2>
 
-        <motion.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 my-8 md:my-12">
+        <motion.div
+          variants={fadeUp}
+          className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 my-8 md:my-12"
+        >
           {adShowcaseData.map((ad, index) => (
             <AdShowcase
               key={index}
@@ -155,6 +148,30 @@ const Portfolio = () => {
         />
       )}
 
+      {/* --- MOBILE ADS (ROW FORMAT) --- */}
+      <div className="md:hidden mt-10">
+
+        <div className="flex overflow-x-auto gap-4 px-3 pb-4 scrollbar-hide">
+          {adShowcaseData.map((item, index) => (
+            <div
+              key={index}
+              className="min-w-[260px] rounded-lg overflow-hidden shadow-md cursor-pointer flex-shrink-0"
+              onClick={() => {
+                setCurrentIndex(index);
+                setLightboxOpen(true);
+              }}
+            >
+              <img
+                src={item.image}
+                alt={`ad-${index}`}
+                className="w-full h-68 object-cover"
+                draggable={false}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* REELS SECTION */}
       <motion.div
         initial="hidden"
@@ -162,18 +179,57 @@ const Portfolio = () => {
         variants={{ show: { transition: { staggerChildren: 0.15 } } }}
         className="mt-16 md:mt-24"
       >
-        <motion.h2 variants={fadeUp} className="text-[34px] md:text-[52px] text text-center leading-tight">
+        <motion.h2
+          variants={fadeUp}
+          className="text-[34px] md:text-[52px] text text-center leading-tight"
+        >
           Reels That Convert{" "}
           <span className="inline-block px-2 bg-green-600 text-white">
             Views Into Money
           </span>
         </motion.h2>
 
-        <motion.div variants={fadeUp} className="mt-6 max-w-[1150px] mx-auto text-center grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        {/* DESKTOP REELS GRID */}
+        <motion.div
+          variants={fadeUp}
+          className="hidden md:grid mt-6 max-w-[1150px] mx-auto text-center grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
+        >
           <ReelCard title="CTR: 2% | ROAS: 3.5X | Revenue: 1.1L +" src="/video/portfolio/1.mp4" />
           <ReelCard title="CTR: 1.1% | ROAS: 2.1X | Revenue: 2.4L +" src="/video/portfolio/2.mp4" />
-          <ReelCard title="CTR: 2% | ROAS: 2.5X | Revenue: 1L +" src="/video/portfolio/3.mp4"/>
+          <ReelCard title="CTR: 2% | ROAS: 2.5X | Revenue: 1L +" src="/video/portfolio/3.mp4" />
         </motion.div>
+
+        {/* MOBILE REELS ROW (SCROLLABLE) */}
+        <div className="md:hidden mt-6 overflow-x-auto pb-4 flex gap-4 px-4">
+          {[ 
+            { src:"/video/portfolio/1.mp4", id:1 },
+            { src:"/video/portfolio/2.mp4", id:2 },
+            { src:"/video/portfolio/3.mp4", id:3 }
+          ].map((v) => {
+            const isActive = activeVideo === v.id;
+            return (
+              <div
+                key={v.id}
+                className="min-w-[260px] rounded-xl overflow-hidden shadow-md relative flex-shrink-0"
+              >
+                <video
+                  src={v.src}
+                  autoPlay
+                  loop
+                  playsInline
+                  muted={!isActive}
+                  className="w-full h-[440px] object-cover"
+                />
+                <button
+                  onClick={() => toggleMute(v.id)}
+                  className="absolute bottom-3 right-3 bg-black/60 text-white p-2 rounded-full"
+                >
+                  {isActive ? <Volume2 size={18} /> : <VolumeX size={18} />}
+                </button>
+              </div>
+            );
+          })}
+        </div>
       </motion.div>
 
       {/* FOOTER CTA */}
@@ -190,7 +246,7 @@ const Portfolio = () => {
           transition={{ type: "spring", stiffness: 300, damping: 15 }}
           className="text-2xl md:text-4xl bg-black text-white px-6 md:px-10 mt-6 rounded-3xl font-bold py-3 md:py-4 w-full sm:w-auto"
         >
-          Book Free Consultation Now!
+          <Link to="/contact">Book Free Consultation Now!</Link>
         </motion.button>
       </motion.div>
     </section>

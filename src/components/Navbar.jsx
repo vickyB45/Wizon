@@ -8,6 +8,7 @@ const path = [
   { name: "Service", path: "/service" },
   { name: "Contact Us", path: "/contact" },
   { name: "Portfolio", path: "/portfolio" },
+  { name: "Blog", path: "/blog" },
 ];
 
 const Navbar = () => {

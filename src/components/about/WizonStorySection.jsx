@@ -74,7 +74,7 @@ export default function WizonStorySection() {
           transition={{ type: "spring", stiffness: 300 }}
           className="inline-block"
         >
-          <Button full="true" text="Book Free Consultation Now!"/>
+          <Button full="true" text="Book Free Consultation Now!" to="/contact"/>
         </motion.div>
       </motion.div>
     </div>

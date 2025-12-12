@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PerformanceMarketing = () => {
   const { ref, inView } = useInView({
@@ -65,9 +66,9 @@ const PerformanceMarketing = () => {
   transition={{ delay: 0.8 }}
   className="mt-10 inline-flex items-center justify-center bg-sky-600 font-semibold text-lg px-6 py-3 rounded-lg shadow-md hover:bg-sky-700 transition-all duration-300 hover:scale-105"
 >
-  <span className="text-white drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]">
+  <Link to="/contact" className="text-white drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]">
     BOOK YOUR STRATEGY CALL →
-  </span>
+  </Link>
 </motion.a>
 
     </section>
