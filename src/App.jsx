@@ -20,6 +20,9 @@ import AdminAddBlog from './pages/AdminAddBlog'
 import AdminBlogs from './pages/AdminBlogs'
 import AdminEditBlog from './pages/AdminEditBlog'
 import AdminContacts from './pages/AdminContacts'
+import ContactDetails from './pages/ContactDetails'
+import NewContact from './pages/NewContact'
+import ServerHealth from './pages/ServerHealth'
 
 const App = () => {
 
@@ -104,6 +107,33 @@ const App = () => {
               element={
                 <ProtectedRoute>
                   <AdminContacts />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/contacts/:id"
+              element={
+                <ProtectedRoute>
+                  <ContactDetails />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/new-contact"
+              element={
+                <ProtectedRoute>
+                  <NewContact />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/server-health"
+              element={
+                <ProtectedRoute>
+                  <ServerHealth />
                 </ProtectedRoute>
               }
             />

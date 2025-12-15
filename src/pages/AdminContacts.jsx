@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import AdminLayout from "../layout/AdminLayout";
-import { 
-  Mail, 
-  Phone, 
-  Building2, 
-  DollarSign, 
+import {
+  Mail,
+  Phone,
+  Building2,
+  DollarSign,
   Calendar,
   Search,
   Filter,
   X,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
 } from "lucide-react";
 import LoaderOverlay from "../components/LoaderOverlay";
+import { useAllContactsQuery, useMarkContactSeenMutation } from "../hook/query/contactQuery";
+import { useNavigate } from "react-router-dom";
 
 const PAGE_SIZE = 10;
 
@@ -32,11 +34,21 @@ const truncate = (text, max = 60) =>
   text?.length > max ? text.slice(0, max) + "..." : text || "";
 
 export default function ContactsPage() {
-  // Replace with your actual data fetching hook
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  /* ============================
+     🔹 FETCH DATA (REACT QUERY)
+  ============================ */
+  const { data: contactsRes, isLoading } = useAllContactsQuery();
+  
+  
 
-  // Filters
+    const navigate = useNavigate()
+
+  // backend response → { success, data }
+  const data = contactsRes?.data || [];
+
+  /* ============================
+     🔹 FILTER STATES
+  ============================ */
   const [filtered, setFiltered] = useState([]);
   const [query, setQuery] = useState("");
   const [sortBy, setSortBy] = useState("newest");
@@ -46,27 +58,9 @@ export default function ContactsPage() {
   const [page, setPage] = useState(1);
   const [showFilters, setShowFilters] = useState(false);
 
-  // Mock data for demonstration
-  useEffect(() => {
-    // Replace this with actual API call
-    setData([
-      {
-        _id: "693fde34f8c3852de55e705e",
-        firstname: "Developer",
-        lastname: "Vicky",
-        phone: "9389897294",
-        email: "v.bisht.kaalcoders@gmail.com",
-        brandname: "KaalCoders PVT LTD",
-        metaAds: "yes",
-        monthlyBudget: "12,000",
-        description: "Just Checking.",
-        source: "contacts-form",
-        createdAt: "2025-12-15T10:08:52.293Z",
-      },
-    ]);
-  }, []);
-
-  // Apply filters
+  /* ============================
+     🔹 APPLY FILTERS
+  ============================ */
   useEffect(() => {
     let result = [...data];
 
@@ -83,34 +77,32 @@ export default function ContactsPage() {
       );
     }
 
-    // Budget filter
+    // Budget
     if (budgetFilter !== "all") {
       result = result.filter((c) => {
         const budget = parseInt(c.monthlyBudget?.replace(/,/g, "") || "0");
         if (budgetFilter === "low") return budget < 10000;
-        if (budgetFilter === "medium") return budget >= 10000 && budget < 50000;
+        if (budgetFilter === "medium")
+          return budget >= 10000 && budget < 50000;
         if (budgetFilter === "high") return budget >= 50000;
         return true;
       });
     }
 
-    // Ads filter
+    // Meta Ads
     if (adsFilter !== "all") {
-      result = result.filter((c) => c.metaAds?.toLowerCase() === adsFilter);
+      result = result.filter(
+        (c) => c.metaAds?.toLowerCase() === adsFilter
+      );
     }
 
-    // Date filter
+    // Date
     if (dateRange !== "all") {
       const now = new Date();
       result = result.filter((c) => {
         const d = new Date(c.createdAt);
-        if (dateRange === "today") {
-          return (
-            d.getDate() === now.getDate() &&
-            d.getMonth() === now.getMonth() &&
-            d.getFullYear() === now.getFullYear()
-          );
-        }
+        if (dateRange === "today")
+          return d.toDateString() === now.toDateString();
         if (dateRange === "week") {
           const weekAgo = new Date();
           weekAgo.setDate(weekAgo.getDate() - 7);
@@ -125,7 +117,7 @@ export default function ContactsPage() {
       });
     }
 
-    // Sorting
+    // Sort
     result.sort((a, b) => {
       if (sortBy === "newest")
         return new Date(b.createdAt) - new Date(a.createdAt);
@@ -134,9 +126,9 @@ export default function ContactsPage() {
       if (sortBy === "name")
         return a.firstname.localeCompare(b.firstname);
       if (sortBy === "budget") {
-        const budgetA = parseInt(a.monthlyBudget?.replace(/,/g, "") || "0");
-        const budgetB = parseInt(b.monthlyBudget?.replace(/,/g, "") || "0");
-        return budgetB - budgetA;
+        const aB = parseInt(a.monthlyBudget?.replace(/,/g, "") || "0");
+        const bB = parseInt(b.monthlyBudget?.replace(/,/g, "") || "0");
+        return bB - aB;
       }
       return 0;
     });
@@ -145,18 +137,28 @@ export default function ContactsPage() {
     setPage(1);
   }, [data, query, sortBy, dateRange, budgetFilter, adsFilter]);
 
-  if (isLoading) return <LoaderOverlay text="Loading contacts..." />;
+  if (isLoading) {
+    return <LoaderOverlay/>;
+  }
 
+  /* ============================
+     🔹 PAGINATION
+  ============================ */
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-  const visible = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const visible = filtered.slice(
+    (page - 1) * PAGE_SIZE,
+    page * PAGE_SIZE
+  );
 
-  // Stats
+  /* ============================
+     🔹 STATS
+  ============================ */
   const stats = {
     total: data.length,
     withAds: data.filter((c) => c.metaAds?.toLowerCase() === "yes").length,
     highBudget: data.filter((c) => {
-      const budget = parseInt(c.monthlyBudget?.replace(/,/g, "") || "0");
-      return budget >= 50000;
+      const b = parseInt(c.monthlyBudget?.replace(/,/g, "") || "0");
+      return b >= 50000;
     }).length,
   };
 
@@ -174,6 +176,11 @@ export default function ContactsPage() {
     dateRange !== "all" ||
     budgetFilter !== "all" ||
     adsFilter !== "all";
+
+
+  /* ============================
+     🔹 UI (same as before)
+  ============================ */
 
   return (
     <AdminLayout>
@@ -480,7 +487,12 @@ export default function ContactsPage() {
                 <tr key={contact._id} className="hover:bg-gray-50 transition">
                   <td className="px-6 py-4">
                     <div>
-                      <p className="font-semibold text-gray-900 text-sm">
+                      <p
+                        onClick={()=>{
+                          navigate(`/admin/contacts/${contact._id}`)
+                          useMarkContactSeenMutation()
+                        }}
+                      className="font-semibold hover:underline cursor-pointer text-gray-900 text-sm">
                         {contact.firstname} {contact.lastname}
                       </p>
                       <div className="flex items-center gap-1 text-xs text-gray-500 mt-1">

@@ -129,3 +129,16 @@ export const markContactAsSeen = async (id) => {
   return response.data;
 };
 
+
+
+
+export const systemStatus = async (id) => {
+  const response = await axiosBaseUrl.get(
+    `/api/admin/system/status`,
+    {},
+    { withCredentials: true }
+  );
+  return response.data;
+};
+
+

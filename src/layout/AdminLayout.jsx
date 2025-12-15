@@ -10,7 +10,8 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import DeleteConfirmModal from "../components/DeleteConfirmModal";
 import { useAdminLogout } from "../hook/mutations/adminLogout";
-import { Contact2 } from "lucide-react";
+import { Bell, Contact2, Server } from "lucide-react";
+import { useAllContactsQuery } from "../hook/query/contactQuery";
 
 export default function AdminLayout({ children }) {
   const navigate = useNavigate();
@@ -19,7 +20,14 @@ export default function AdminLayout({ children }) {
   const [open, setOpen] = useState(false);
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
-  // 🔐 ACTUAL LOGOUT (SERVER)
+  // 🔔 FETCH CONTACTS FOR NOTIFICATION COUNT
+  const { data: contactsRes } = useAllContactsQuery();
+
+  // unseen contacts count
+  const unseenCount =
+    contactsRes?.data?.filter((c) => c.isSeen === false).length || 0;
+
+  // 🔐 ACTUAL LOGOUT
   const confirmLogout = () => {
     logout(null, {
       onSuccess: () => {
@@ -29,7 +37,7 @@ export default function AdminLayout({ children }) {
   };
 
   return (
-    <div className="min-h-screen flex bg-gray-100 heading">
+    <div className=" flex  heading">
       {/* MOBILE TOP NAVBAR */}
       <div className="md:hidden fixed top-0 left-0 w-full z-30 bg-white shadow-md p-4 flex items-center justify-between">
         <button onClick={() => setOpen(true)} className="text-gray-700">
@@ -103,9 +111,40 @@ export default function AdminLayout({ children }) {
                 onClick={() => setOpen(false)}
                 className="flex items-center gap-3 hover:text-primary"
               >
-                <Contact2  size={18}/> All Contacts
+                <Contact2 size={18} /> All Contacts
               </Link>
 
+              <Link
+                to="/admin/server-health"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 hover:text-primary"
+              >
+                <Server size={18} /> Server Health
+              </Link>
+
+
+
+
+              {/* 🔔 NEW CONTACT WITH BADGE */}
+              <Link
+                to="/admin/new-contact"
+                onClick={() => setOpen(false)}
+                className="relative flex items-center gap-3 hover:text-primary"
+              >
+                <div className="relative">
+                  <Bell size={18} />
+                  {unseenCount > 0 && (
+                    <span
+                      className="absolute -top-2 -right-2 min-w-[16px] h-[16px]
+                                 bg-red-500 text-white text-[10px] font-bold
+                                 rounded-full flex items-center justify-center px-1"
+                    >
+                      {unseenCount}
+                    </span>
+                  )}
+                </div>
+                <span>New Contact</span>
+              </Link>
             </nav>
           </div>
 
@@ -122,7 +161,7 @@ export default function AdminLayout({ children }) {
       </aside>
 
       {/* CONTENT */}
-      <main className="flex-1 md:ml-64 p-5 md:p-10 mt-14 md:mt-0">
+      <main className="flex-1 md:ml-64 p-2 md:p-10 mt-14 md:mt-0">
         {children}
       </main>
 
@@ -136,7 +175,6 @@ export default function AdminLayout({ children }) {
         confirmText="Yes, Logout"
         confirmVariant="primary"
       />
-
     </div>
   );
 }
