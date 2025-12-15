@@ -19,6 +19,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import AdminAddBlog from './pages/AdminAddBlog'
 import AdminBlogs from './pages/AdminBlogs'
 import AdminEditBlog from './pages/AdminEditBlog'
+import AdminContacts from './pages/AdminContacts'
 
 const App = () => {
 
@@ -90,13 +91,22 @@ const App = () => {
             />
 
             <Route
-  path="/admin/blog/edit/:id"
-  element={
-    <ProtectedRoute>
-      <AdminEditBlog />
-    </ProtectedRoute>
-  }
-/>
+              path="/admin/blog/edit/:id"
+              element={
+                <ProtectedRoute>
+                  <AdminEditBlog />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/contacts"
+              element={
+                <ProtectedRoute>
+                  <AdminContacts />
+                </ProtectedRoute>
+              }
+            />
 
           </Routes>
         </div>

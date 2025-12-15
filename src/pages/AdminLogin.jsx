@@ -1,66 +1,64 @@
 import React, { useState } from "react";
 import { Mail, Lock, AlertCircle, Eye, EyeOff, Shield } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { adminLogin } from "../store/adminAuthSlice";
+import { useAdminLoginMutation } from "../hook/mutations/adminLogin";
 
 export default function AdminLogin() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  // ENV VARIABLES
-  const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL;
-  const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD;
+  const { mutate: adminLogin, isPending } = useAdminLoginMutation();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [localError, setLocalError] = useState("");
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setError("");
-    setIsLoading(true);
+    setLocalError("");
 
-    setTimeout(() => {
-      if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-        const authData = {
-          name: "Wizon Admin",
-          email,
-          isAuthenticated: true,
-        };
+    if (!email || !password) {
+      setLocalError("Email and password are required");
+      return;
+    }
 
-        // SAVE INTO REDUX + LOCAL STORAGE
-        dispatch(adminLogin(authData));
-
-        navigate("/admin");
-        setIsLoading(false);
-      } else {
-        setError("Invalid credentials. Please try again.");
-        setIsLoading(false);
+    adminLogin(
+      { email, password },
+      {
+        onSuccess: () => {
+          // ✅ server verified, cookie set
+          navigate("/admin");
+        },
+        onError: (error) => {
+          const msg =
+            error?.response?.data?.message ||
+            "Invalid credentials. Please try again.";
+          setLocalError(msg);
+        },
       }
-    }, 700);
-  }
+    );
+  };
 
   return (
-    <div className="relative flex items-center justify-center px-4 py-12">
+    <div className="relative flex items-center justify-center px-4 py-12 min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
       <div className="w-full max-w-md">
         <div className="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20">
           <div className="mb-6">
-            <h2 className="text-3xl font-bold text-gray-900 mb-1">Welcome Admin</h2>
-            <p className="text-gray-600 text-sm">Sign in to access the dashboard</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-1">
+              Welcome Admin
+            </h2>
+            <p className="text-gray-600 text-sm">
+              Sign in to access the dashboard
+            </p>
           </div>
 
-          {error && (
-            <div className="mb-6 bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3 animate-shake">
+          {localError && (
+            <div className="mb-6 bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3">
               <AlertCircle className="w-5 h-5 text-red-500" />
-              <p className="text-sm text-red-800">{error}</p>
+              <p className="text-sm text-red-800">{localError}</p>
             </div>
           )}
 
           <form className="space-y-5" onSubmit={handleSubmit}>
-
             {/* Email */}
             <div>
               <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
@@ -73,7 +71,7 @@ export default function AdminLogin() {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  setError("");
+                  setLocalError("");
                 }}
               />
             </div>
@@ -91,13 +89,13 @@ export default function AdminLogin() {
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
-                    setError("");
+                    setLocalError("");
                   }}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
                 >
                   {showPassword ? <EyeOff /> : <Eye />}
                 </button>
@@ -107,10 +105,10 @@ export default function AdminLogin() {
             {/* Submit */}
             <button
               type="submit"
-              disabled={isLoading}
+              disabled={isPending}
               className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-xl font-bold hover:scale-[1.02] transition disabled:opacity-60 flex items-center justify-center"
             >
-              {isLoading ? (
+              {isPending ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
                   &nbsp;Signing In...
@@ -132,7 +130,7 @@ export default function AdminLogin() {
           </form>
         </div>
 
-        <p className="text-center text-sm mt-6">
+        <p className="text-center text-sm mt-6 text-gray-600">
           © {new Date().getFullYear()} Wizon Admin Panel
         </p>
       </div>

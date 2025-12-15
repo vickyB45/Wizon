@@ -1,38 +1,51 @@
 import React, { useEffect } from "react";
 
-export default function DeleteConfirmModal({ open, onClose, onConfirm }) {
+export default function DeleteConfirmModal({
+  open,
+  onClose,
+  onConfirm,
+
+  // 🔁 Reusable props
+  title = "Are you sure?",
+  description = "This action cannot be undone.",
+  confirmText = "Confirm",
+  cancelText = "Cancel",
+  confirmVariant = "danger", // danger | primary
+}) {
   if (!open) return null;
 
-  // Close modal on ESC key
+  // ESC key close
   useEffect(() => {
     function handleKey(e) {
       if (e.key === "Escape") onClose();
     }
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, []);
+  }, [onClose]);
+
+  const confirmBtnClass =
+    confirmVariant === "danger"
+      ? "bg-red-600 hover:bg-red-700"
+      : "bg-black hover:bg-gray-900";
 
   return (
     <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex justify-center items-center z-50">
-      
-      {/* MODAL BOX */}
-      <div className="bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-md relative animate-fadeIn">
+      <div className="bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-md animate-fadeIn">
 
         <h2 className="text-xl font-semibold text-gray-800 mb-3">
-          Confirm Deletion
+          {title}
         </h2>
 
         <p className="text-gray-600 mb-6">
-          Are you sure you want to delete this blog? This action cannot be undone.
+          {description}
         </p>
 
         <div className="flex justify-end gap-3">
-
           <button
             onClick={onClose}
             className="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 transition"
           >
-            Cancel
+            {cancelText}
           </button>
 
           <button
@@ -40,14 +53,12 @@ export default function DeleteConfirmModal({ open, onClose, onConfirm }) {
               onConfirm();
               onClose();
             }}
-            className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition"
+            className={`px-4 py-2 rounded-lg text-white transition ${confirmBtnClass}`}
           >
-            Yes, Delete
+            {confirmText}
           </button>
-
         </div>
       </div>
-
     </div>
   );
 }

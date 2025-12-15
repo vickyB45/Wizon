@@ -48,7 +48,7 @@ export default function SinglePost() {
 
       {/* FEATURED IMAGE - CLICK TO PREVIEW */}
       <div
-        className="w-full h-64 md:h-[70vh] overflow-hidden rounded-xl mb-6 bg-gray-100 shadow cursor-pointer group"
+        className="w-full h-[50vh] md:h-[70vh] overflow-hidden rounded-xl mb-6 bg-gray-100 shadow cursor-pointer group"
         onClick={() => {
           setPreviewImage(post.featuredImage);
           setPreviewOpen(true);
