@@ -25,8 +25,9 @@ export default function AdminLogin() {
       { email, password },
       {
         onSuccess: () => {
-          // ✅ server verified, cookie set
-          navigate("/admin");
+          setTimeout(() => {
+            navigate("/admin");
+          }, 500);
         },
         onError: (error) => {
           const msg =

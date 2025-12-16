@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import { handleAdminLogin } from "../../api/api";
+import { Link } from "react-router-dom";
 
 // ✅ Correct name: Admin Login
 export const useAdminLoginMutation = () => {
@@ -15,7 +16,9 @@ export const useAdminLoginMutation = () => {
         response?.data?.message ||
         "Login successful";
 
-      toast.success(successMessage);
+      setTimeout(() => {
+        toast.success(successMessage)
+      }, 500);;
     },
 
     onError: (error) => {
