@@ -27,7 +27,19 @@ const ServerHealth = () => {
   useEffect(() => {
     if (!data?.memory) return;
 
-    setLiveMemory({ ...data.memory });
+    // Backend se correct field names use karo
+    const totalRAM = data.memory.totalSystemRAM_MB || 0;
+    const processRAM = data.memory.processRAM_MB || 0;
+    const heapTotal = data.memory.heapTotalMB || 0;
+    const heapUsed = data.memory.heapUsedMB || 0;
+
+    setLiveMemory({
+      totalRAM_MB: totalRAM,
+      usedMB: processRAM,
+      freeRAM_MB: Math.max(0, totalRAM - processRAM),
+      heapTotalMB: heapTotal,
+      heapUsedMB: heapUsed,
+    });
 
     const i = setInterval(() => {
       setLiveMemory((prev) => {
@@ -70,15 +82,38 @@ const ServerHealth = () => {
     );
   }
 
-  const { status, environment, uptime, system } = data || {};
+  const { status, environment, uptime, system, healthPercent } = data || {};
 
-  const memPct = liveMemory
+  const memPct = liveMemory && liveMemory.totalRAM_MB > 0
     ? ((liveMemory.usedMB / liveMemory.totalRAM_MB) * 100).toFixed(1)
     : 0;
 
-  const heapPct = liveMemory
+  const heapPct = liveMemory && liveMemory.heapTotalMB > 0
     ? ((liveMemory.heapUsedMB / liveMemory.heapTotalMB) * 100).toFixed(1)
     : 0;
+
+  const statusUI = {
+    healthy: {
+      label: "Healthy",
+      color: "green",
+      pulse: "bg-green-500",
+      text: "text-green-600",
+    },
+    degraded: {
+      label: "Degraded",
+      color: "yellow",
+      pulse: "bg-yellow-500",
+      text: "text-yellow-600",
+    },
+    critical: {
+      label: "Critical",
+      color: "red",
+      pulse: "bg-red-500",
+      text: "text-red-600",
+    },
+  };
+
+  const statusMeta = statusUI[status] || statusUI.healthy;
 
   return (
     <AdminLayout>
@@ -117,9 +152,10 @@ const ServerHealth = () => {
             {[
               {
                 label: "Status",
-                value: status,
+                value: statusMeta.label,
                 icon: Activity,
-                color: "green",
+                color: statusMeta.color,
+                isStatus: true,
               },
               {
                 label: "Environment",
@@ -146,13 +182,8 @@ const ServerHealth = () => {
                 className="bg-white/70 backdrop-blur-xl rounded-2xl p-5 border border-white shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <div
-                    className={`p-3 rounded-xl bg-${c.color}-100`}
-                  >
-                    <c.icon
-                      size={22}
-                      className={`text-${c.color}-600`}
-                    />
+                  <div className={`p-3 rounded-xl bg-${c.color}-100`}>
+                    <c.icon size={22} className={`text-${c.color}-600`} />
                   </div>
                   {c.label === "Status" && (
                     <div className="relative">
@@ -164,12 +195,23 @@ const ServerHealth = () => {
                 <p className="text-xs uppercase tracking-wider text-gray-400">
                   {c.label}
                 </p>
-                <p className="text-lg font-bold text-gray-900 capitalize">
+                <p
+                  className={`${
+                    c.isStatus
+                      ? `text-2xl ${statusMeta.text}`
+                      : "text-lg text-gray-900"
+                  } font-bold capitalize`}
+                >
                   {c.value}
                 </p>
-                {c.sub && (
-                  <p className="text-xs text-gray-500">{c.sub}</p>
+
+                {c.isStatus && (
+                  <p className="text-xs text-gray-500 mt-1">
+                    Health: {healthPercent}%
+                  </p>
                 )}
+
+                {c.sub && <p className="text-xs text-gray-500">{c.sub}</p>}
               </div>
             ))}
           </div>
@@ -197,10 +239,11 @@ const ServerHealth = () => {
                 <div className="flex justify-between text-sm mb-2">
                   <span className="font-medium text-gray-700">
                     RAM Usage
+                    <span className="block text-xs text-gray-400 font-normal mt-0.5">
+                      Total system memory being used
+                    </span>
                   </span>
-                  <span className="font-bold text-purple-600">
-                    {memPct}%
-                  </span>
+                  <span className="font-bold text-purple-600">{memPct}%</span>
                 </div>
                 <div className="h-3 rounded-full bg-gray-200 overflow-hidden">
                   <div
@@ -210,8 +253,8 @@ const ServerHealth = () => {
                   />
                 </div>
                 <div className="flex justify-between text-xs text-gray-500 mt-1">
-                  <span>{liveMemory?.usedMB} MB used</span>
-                  <span>{liveMemory?.totalRAM_MB} MB total</span>
+                  <span>{liveMemory?.usedMB || 0} MB used</span>
+                  <span>{liveMemory?.totalRAM_MB || 0} MB total</span>
                 </div>
               </div>
 
@@ -220,10 +263,11 @@ const ServerHealth = () => {
                 <div className="flex justify-between text-sm mb-2">
                   <span className="font-medium text-gray-700">
                     Heap Usage
+                    <span className="block text-xs text-gray-400 font-normal mt-0.5">
+                      Node.js memory allocation for app
+                    </span>
                   </span>
-                  <span className="font-bold text-indigo-600">
-                    {heapPct}%
-                  </span>
+                  <span className="font-bold text-indigo-600">{heapPct}%</span>
                 </div>
                 <div className="h-3 rounded-full bg-gray-200 overflow-hidden">
                   <div
@@ -233,43 +277,44 @@ const ServerHealth = () => {
                   />
                 </div>
                 <div className="flex justify-between text-xs text-gray-500 mt-1">
-                  <span>{liveMemory?.heapUsedMB} MB used</span>
-                  <span>{liveMemory?.heapTotalMB} MB total</span>
+                  <span>{liveMemory?.heapUsedMB || 0} MB used</span>
+                  <span>{liveMemory?.heapTotalMB || 0} MB total</span>
                 </div>
               </div>
               {/* MINI MEMORY STATS */}
-<div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-gray-200">
-  {/* Free RAM */}
-  <div
-    className="bg-white/80 backdrop-blur-xl rounded-xl p-4 
+              <div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-gray-200">
+                {/* Free RAM */}
+                <div
+                  className="bg-white/80 backdrop-blur-xl rounded-xl p-4 
                border border-gray-200 shadow-sm 
                hover:shadow-md transition"
-  >
-    <p className="text-xs uppercase tracking-wider text-gray-500 mb-1">
-      Free RAM
-    </p>
-    <p className="text-xl sm:text-2xl font-bold text-green-600">
-      {liveMemory?.freeRAM_MB} MB
-    </p>
-  </div>
+                >
+                  <p className="text-xs uppercase tracking-wider text-gray-500 mb-1">
+                    Free RAM
+                  </p>
+                  <p className="text-xl sm:text-2xl font-bold text-green-600">
+                    {liveMemory?.freeRAM_MB || 0} MB
+                  </p>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Available system memory
+                  </p>
+                </div>
 
-  {/* Heap Total */}
-  <div
-    className="bg-white/80 backdrop-blur-xl rounded-xl p-4 
+                {/* Heap Total */}
+                <div
+                  className="bg-white/80 backdrop-blur-xl rounded-xl p-4 
                border border-gray-200 shadow-sm 
                hover:shadow-md transition"
-  >
-    <p className="text-xs uppercase tracking-wider text-gray-500 mb-1">
-      Heap Total
-    </p>
-    <p className="text-xl sm:text-2xl font-bold text-blue-600">
-      {liveMemory?.heapTotalMB} MB
-    </p>
-  </div>
-</div>
-
+                >
+                  <p className="text-xs uppercase tracking-wider text-gray-500 mb-1">
+                    Heap Total
+                  </p>
+                  <p className="text-xl sm:text-2xl font-bold text-blue-600">
+                    {liveMemory?.heapTotalMB || 0} MB
+                  </p>
+                </div>
+              </div>
             </div>
-            
 
             {/* SYSTEM */}
             <div className="bg-white/70 backdrop-blur-xl rounded-2xl p-6 border border-white shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
@@ -298,9 +343,7 @@ const ServerHealth = () => {
                     className="flex justify-between items-center p-4 rounded-xl bg-white border border-gray-200"
                   >
                     <span className="text-sm text-gray-500">{s[0]}</span>
-                    <span className="font-semibold text-gray-900">
-                      {s[1]}
-                    </span>
+                    <span className="font-semibold text-gray-900">{s[1]}</span>
                   </div>
                 ))}
               </div>
